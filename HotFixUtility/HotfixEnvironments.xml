@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<HotFixCommand>c:\hf.bat</HotFixCommand>
+	<Environments>
+		<Environment>
+			<EnvironmentName>900</EnvironmentName>
+			<AsciiSourceDirectory>c:\</AsciiSourceDirectory>
+			<AsciiDestinationDirectory>D:\</AsciiDestinationDirectory>
+			<SourceDirectory>E:\</SourceDirectory>
+			<TargetDirectory>F:\</TargetDirectory>
+			<ProlibProenvCommand>G:\</ProlibProenvCommand>
+			<AsciiProlibProenvCommand>H:\</AsciiProlibProenvCommand>
+			<RTBSourceDirectory>I:\</RTBSourceDirectory>
+			<RTBDestinationDirectory>J:\</RTBDestinationDirectory>
+		</Environment>
+		<Environment>
+			<EnvironmentName>822</EnvironmentName>
+			<AsciiSourceDirectory>c1:\</AsciiSourceDirectory>
+			<AsciiDestinationDirectory>D1:\</AsciiDestinationDirectory>
+			<SourceDirectory>E1:\</SourceDirectory>
+			<TargetDirectory>F1:\</TargetDirectory>
+			<ProlibProenvCommand>G1:\</ProlibProenvCommand>
+			<AsciiProlibProenvCommand>H1:\</AsciiProlibProenvCommand>
+			<RTBSourceDirectory>I1:\</RTBSourceDirectory>
+			<RTBDestinationDirectory>J1:\</RTBDestinationDirectory>
+		</Environment>
+	</Environments>
+</Configurations>
