@@ -20,17 +20,36 @@ namespace HotFixUtility
         {
             InitializeComponent();
             LoadInitialSetups();
+
+            if (!VerifyAllEnvironmentDirectories())
+            {
+                MessageBox.Show("Invalid directories found in configuration", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                //Close the form
+                Load += (s, e) => Close();
+                return;
+                
+            }    
         }
         private void LoadInitialSetups()
         {
             environmentXML = ConfigurationManager.AppSettings.Get("EnvironmentXML");
+            // What if Configuration file doesn't have the EnvironmentXML file entry?
+            // What if invalid file name?
             // TODO : Error validation should be here.
 
             ConfigDetails confDtl = new ConfigDetails(environmentXML);
             environmentList = confDtl.GetEnvironmentList();
-            cmbEnvironment.Items.AddRange(environmentList.ToArray());
-            cmbEnvironment.SelectedIndex=0;
 
+            // Get the list of environments in the combobox.
+            cmbEnvironment.Items.AddRange(environmentList.ToArray());
+
+        }
+        private bool VerifyAllEnvironmentDirectories()
+        {
+            // throw new NotImplementedException();
+            // TODO
+            return true;
         }
     }
 }

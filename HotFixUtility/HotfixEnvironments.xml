@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0"?>
 <Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<HotFixCommand>c:\hf.bat</HotFixCommand>
+	<AsciiModuleList>A,B,C</AsciiModuleList>
 	<Environments>
 		<Environment>
 			<EnvironmentName>900</EnvironmentName>

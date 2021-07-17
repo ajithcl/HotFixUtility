@@ -91,6 +91,10 @@ namespace HotFixUtility
         {
             get; set;    
         }
+        public string AsciiModuleList
+        {
+            get; set;
+        }
         public EnvironmentList Environments
         {
             get;set;
