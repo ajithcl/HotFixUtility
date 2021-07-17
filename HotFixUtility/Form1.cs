@@ -16,6 +16,13 @@ namespace HotFixUtility
     {
         string environmentXML;
         List<string> environmentList;
+
+        private enum StatusTypes
+        {
+            Success,
+            Error,
+            General
+        }
         public Form1()
         {
             InitializeComponent();
@@ -50,6 +57,26 @@ namespace HotFixUtility
             // throw new NotImplementedException();
             // TODO
             return true;
+        }
+        private void ChangeBackgroundColor(System.Windows.Forms.Control uiElement ,StatusTypes status)
+        {
+            switch (status)
+            {
+                case StatusTypes.Success:
+                    uiElement.BackColor = System.Drawing.Color.LightGreen;
+                    break;
+                case StatusTypes.Error:
+                    uiElement.BackColor = System.Drawing.Color.Red;
+                    break;
+                default:
+                    uiElement.BackColor = System.Drawing.Color.Gray;
+                    break;
+            }
+        }
+
+        private void btnTransferAsciiFiles_Click(object sender, EventArgs e)
+        {
+            ChangeBackgroundColor(this.btnTransferAsciiFiles, StatusTypes.Success);
         }
     }
 }

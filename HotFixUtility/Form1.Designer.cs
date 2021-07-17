@@ -107,6 +107,7 @@ namespace HotFixUtility
             this.btnTransferAsciiFiles.TabIndex = 6;
             this.btnTransferAsciiFiles.Text = "Transfer ASCII Files";
             this.btnTransferAsciiFiles.UseVisualStyleBackColor = true;
+            this.btnTransferAsciiFiles.Click += new System.EventHandler(this.btnTransferAsciiFiles_Click);
             // 
             // btnTransferFiles
             // 
