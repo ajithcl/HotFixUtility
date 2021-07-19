@@ -82,9 +82,16 @@ namespace HotFixUtility
         private void btnFileSelect_Click(object sender, EventArgs e)
         {
             openFileDialog1.Filter = "CSV files (*.csv)|*.csv";
-            openFileDialog1.ShowDialog();
-            txtInputFile.Text = openFileDialog1.FileName;
-            errorProvider1.Clear();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                txtInputFile.Text = openFileDialog1.FileName;
+                errorProvider1.Clear();
+            }                
+            else
+            {
+                errorProvider1.SetError(txtInputFile, "Select input file.");
+            }
+            
         }
 
         private void btnLoadFile_Click(object sender, EventArgs e)
