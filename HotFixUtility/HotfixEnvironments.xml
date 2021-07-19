@@ -5,14 +5,14 @@
 	<Environments>
 		<Environment>
 			<EnvironmentName>900</EnvironmentName>
-			<AsciiSourceDirectory>c:\</AsciiSourceDirectory>
-			<AsciiDestinationDirectory>D:\</AsciiDestinationDirectory>
-			<SourceDirectory>E:\</SourceDirectory>
-			<TargetDirectory>F:\</TargetDirectory>
+			<AsciiSourceDirectory>D:\Translat\900A\Ascii\German\Programs\</AsciiSourceDirectory>
+			<AsciiDestinationDirectory>W:\Version\900A\Service1\hotfix\Ascii\</AsciiDestinationDirectory>
+			<SourceDirectory>W:\Translation\900A\Programs\</SourceDirectory>
+			<TargetDirectory>W:\Version\900A\Service1\hotfix\</TargetDirectory>
 			<ProlibProenvCommand>G:\</ProlibProenvCommand>
-			<AsciiProlibProenvCommand>H:\</AsciiProlibProenvCommand>
-			<RTBSourceDirectory>I:\</RTBSourceDirectory>
-			<RTBDestinationDirectory>J:\</RTBDestinationDirectory>
+			<AsciiProlibProenvCommand>W:\Version\900A\Service1\hotfix\_DOS_BOX_OE11.bat</AsciiProlibProenvCommand>
+			<RTBSourceDirectory>W:\RTB\900A\FO\</RTBSourceDirectory>
+			<RTBDestinationDirectory>W:\Version\900A\Service1\</RTBDestinationDirectory>
 		</Environment>
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>

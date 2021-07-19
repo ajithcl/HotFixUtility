@@ -29,6 +29,7 @@ namespace HotFixUtility
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,7 +50,14 @@ namespace HotFixUtility
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnHelpTransfer = new System.Windows.Forms.Button();
+            this.btnHelpProlib = new System.Windows.Forms.Button();
+            this.btnHelpRtb = new System.Windows.Forms.Button();
+            this.btnHelpHF = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,14 +67,14 @@ namespace HotFixUtility
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(893, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(714, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 34);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // label1
@@ -109,7 +117,7 @@ namespace HotFixUtility
             // btnTransferAsciiFiles
             // 
             this.btnTransferAsciiFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferAsciiFiles.Location = new System.Drawing.Point(125, 120);
+            this.btnTransferAsciiFiles.Location = new System.Drawing.Point(375, 120);
             this.btnTransferAsciiFiles.Name = "btnTransferAsciiFiles";
             this.btnTransferAsciiFiles.Size = new System.Drawing.Size(224, 35);
             this.btnTransferAsciiFiles.TabIndex = 6;
@@ -120,7 +128,7 @@ namespace HotFixUtility
             // btnTransferFiles
             // 
             this.btnTransferFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferFiles.Location = new System.Drawing.Point(375, 120);
+            this.btnTransferFiles.Location = new System.Drawing.Point(125, 120);
             this.btnTransferFiles.Name = "btnTransferFiles";
             this.btnTransferFiles.Size = new System.Drawing.Size(224, 35);
             this.btnTransferFiles.TabIndex = 7;
@@ -190,7 +198,9 @@ namespace HotFixUtility
             this.btnLoadFile.Name = "btnLoadFile";
             this.btnLoadFile.Size = new System.Drawing.Size(46, 37);
             this.btnLoadFile.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.btnLoadFile, "Load input file.");
             this.btnLoadFile.UseVisualStyleBackColor = true;
+            this.btnLoadFile.Click += new System.EventHandler(this.btnLoadFile_Click);
             // 
             // label3
             // 
@@ -232,11 +242,63 @@ namespace HotFixUtility
             this.label6.TabIndex = 17;
             this.label6.Text = "Hotfix :";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // btnHelpTransfer
+            // 
+            this.btnHelpTransfer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpTransfer.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpTransfer.Image")));
+            this.btnHelpTransfer.Location = new System.Drawing.Point(605, 120);
+            this.btnHelpTransfer.Name = "btnHelpTransfer";
+            this.btnHelpTransfer.Size = new System.Drawing.Size(46, 35);
+            this.btnHelpTransfer.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.btnHelpTransfer, "Help on Transfering files.");
+            this.btnHelpTransfer.UseVisualStyleBackColor = true;
+            // 
+            // btnHelpProlib
+            // 
+            this.btnHelpProlib.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpProlib.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpProlib.Image")));
+            this.btnHelpProlib.Location = new System.Drawing.Point(605, 161);
+            this.btnHelpProlib.Name = "btnHelpProlib";
+            this.btnHelpProlib.Size = new System.Drawing.Size(46, 35);
+            this.btnHelpProlib.TabIndex = 19;
+            this.toolTip1.SetToolTip(this.btnHelpProlib, "Help on Prolib commands.");
+            this.btnHelpProlib.UseVisualStyleBackColor = true;
+            // 
+            // btnHelpRtb
+            // 
+            this.btnHelpRtb.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpRtb.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpRtb.Image")));
+            this.btnHelpRtb.Location = new System.Drawing.Point(605, 202);
+            this.btnHelpRtb.Name = "btnHelpRtb";
+            this.btnHelpRtb.Size = new System.Drawing.Size(46, 35);
+            this.btnHelpRtb.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.btnHelpRtb, "Help on RTB files transfer.");
+            this.btnHelpRtb.UseVisualStyleBackColor = true;
+            // 
+            // btnHelpHF
+            // 
+            this.btnHelpHF.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpHF.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpHF.Image")));
+            this.btnHelpHF.Location = new System.Drawing.Point(605, 243);
+            this.btnHelpHF.Name = "btnHelpHF";
+            this.btnHelpHF.Size = new System.Drawing.Size(46, 35);
+            this.btnHelpHF.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.btnHelpHF, "Help on Hotfix command.");
+            this.btnHelpHF.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 296);
+            this.Controls.Add(this.btnHelpHF);
+            this.Controls.Add(this.btnHelpRtb);
+            this.Controls.Add(this.btnHelpProlib);
+            this.Controls.Add(this.btnHelpTransfer);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -259,6 +321,7 @@ namespace HotFixUtility
             this.Text = "Hotfix Utility";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,6 +348,12 @@ namespace HotFixUtility
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnHelpHF;
+        private System.Windows.Forms.Button btnHelpRtb;
+        private System.Windows.Forms.Button btnHelpProlib;
+        private System.Windows.Forms.Button btnHelpTransfer;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
