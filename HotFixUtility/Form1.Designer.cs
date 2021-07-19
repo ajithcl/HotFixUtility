@@ -35,7 +35,7 @@ namespace HotFixUtility
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEnvironment = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtInputFile = new System.Windows.Forms.TextBox();
             this.btnTransferAsciiFiles = new System.Windows.Forms.Button();
             this.btnTransferFiles = new System.Windows.Forms.Button();
             this.btnAddProlibFiles = new System.Windows.Forms.Button();
@@ -66,7 +66,7 @@ namespace HotFixUtility
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 34);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // label1
@@ -98,13 +98,13 @@ namespace HotFixUtility
             this.label2.TabIndex = 3;
             this.label2.Text = "Input File :";
             // 
-            // textBox1
+            // txtInputFile
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(125, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(474, 27);
-            this.textBox1.TabIndex = 4;
+            this.txtInputFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInputFile.Location = new System.Drawing.Point(125, 80);
+            this.txtInputFile.Name = "txtInputFile";
+            this.txtInputFile.Size = new System.Drawing.Size(474, 27);
+            this.txtInputFile.TabIndex = 4;
             // 
             // btnTransferAsciiFiles
             // 
@@ -180,6 +180,7 @@ namespace HotFixUtility
             this.btnFileSelect.Size = new System.Drawing.Size(46, 37);
             this.btnFileSelect.TabIndex = 12;
             this.btnFileSelect.UseVisualStyleBackColor = true;
+            this.btnFileSelect.Click += new System.EventHandler(this.btnFileSelect_Click);
             // 
             // btnLoadFile
             // 
@@ -248,7 +249,7 @@ namespace HotFixUtility
             this.Controls.Add(this.btnAddProlibFiles);
             this.Controls.Add(this.btnTransferFiles);
             this.Controls.Add(this.btnTransferAsciiFiles);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtInputFile);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbEnvironment);
             this.Controls.Add(this.label1);
@@ -270,7 +271,7 @@ namespace HotFixUtility
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbEnvironment;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtInputFile;
         private System.Windows.Forms.Button btnTransferAsciiFiles;
         private System.Windows.Forms.Button btnTransferFiles;
         private System.Windows.Forms.Button btnAddProlibFiles;

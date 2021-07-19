@@ -79,5 +79,11 @@ namespace HotFixUtility
             ChangeBackgroundColor(this.btnTransferAsciiFiles, StatusTypes.Success);
         }
 
+        private void btnFileSelect_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "CSV files (*.csv)|*.csv";
+            openFileDialog1.ShowDialog();
+            txtInputFile.Text = openFileDialog1.FileName;
+        }
     }
 }
