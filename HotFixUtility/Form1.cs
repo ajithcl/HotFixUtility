@@ -28,7 +28,7 @@ namespace HotFixUtility
             InitializeComponent();
             LoadInitialSetups();
 
-            if (!VerifyAllEnvironmentDirectories())
+            if (!Operations.VerifyEnvironmentDirectories(""))
             {
                 MessageBox.Show("Invalid directories found in configuration", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -51,12 +51,6 @@ namespace HotFixUtility
             // Get the list of environments in the combobox.
             cmbEnvironment.Items.AddRange(environmentList.ToArray());
 
-        }
-        private bool VerifyAllEnvironmentDirectories()
-        {
-            // throw new NotImplementedException();
-            // TODO
-            return true;
         }
         private void ChangeBackgroundColor(System.Windows.Forms.Control uiElement ,StatusTypes status)
         {

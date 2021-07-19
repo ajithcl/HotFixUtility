@@ -9,8 +9,15 @@ namespace HotFixUtility
 {
     class ConfigDetails
     {
-        string configFilePath;
-        Configurations configResult;
+        public string configFilePath;
+        static Configurations configResult;
+
+        // LastMessage - Property to hold the message from this class
+        public static string LastMessage
+        {
+            get; private set;
+        }
+
         public ConfigDetails(string configFilePath)
         {
             this.configFilePath = configFilePath;
@@ -30,10 +37,20 @@ namespace HotFixUtility
             {
                 environmentList.Add(env.EnvironmentName);
             }
-
-
             return environmentList;
-            
+        }
+
+        public static Environment GetEnvironmentDetails(string environmentName)
+        {
+            foreach (Environment env in configResult.Environments)
+            {
+                if (env.EnvironmentName == environmentName)
+                {
+                    return env;
+                }
+            }
+            LastMessage = "No Environment found.";
+            return null;          
         }
     }
     [XmlType("Environment")]
@@ -71,8 +88,7 @@ namespace HotFixUtility
             get; set;
         }
         public string RTBSourceDirectory
-        {
-            get; set;
+        {            get; set;
         }
         public string RTBDestinationDirectory
         {
@@ -129,5 +145,16 @@ namespace HotFixUtility
         {
             get; set;
         }
+    }
+
+    // Data structure for holding Configuration details
+    public struct ConfigData
+    {
+        public string TransferAllSource        {get; set;}
+        public string TransferAllDestination   {get; set;}
+        public string TransferAsciiSource      {get; set;}
+        public string TransferAsciiDestination {get; set;}
+        public string RTBSource                {get; set;}
+        public string RTBDestination           {get; set;}
     }
 }
