@@ -26,4 +26,18 @@
 			<RTBDestinationDirectory>J1:\</RTBDestinationDirectory>
 		</Environment>
 	</Environments>
+	<RTBMappings>
+		<RTBMapping>
+			<RTBModule>adeicon</RTBModule>
+			<RTBDirectory>adeicon</RTBDirectory>
+		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>ascinterface</RTBModule>
+			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>ascshared</RTBModule>
+			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>
+	</RTBMappings>
 </Configurations>

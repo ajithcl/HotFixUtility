@@ -51,7 +51,7 @@ namespace HotFixUtility
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(654, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(818, 38);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,43 +64,43 @@ namespace HotFixUtility
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 22);
+            this.label1.Size = new System.Drawing.Size(124, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Environment";
             // 
             // cmbEnvironment
             // 
-            this.cmbEnvironment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbEnvironment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEnvironment.FormattingEnabled = true;
-            this.cmbEnvironment.Location = new System.Drawing.Point(156, 42);
+            this.cmbEnvironment.Location = new System.Drawing.Point(156, 36);
             this.cmbEnvironment.Name = "cmbEnvironment";
-            this.cmbEnvironment.Size = new System.Drawing.Size(224, 30);
+            this.cmbEnvironment.Size = new System.Drawing.Size(224, 28);
             this.cmbEnvironment.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 22);
+            this.label2.Size = new System.Drawing.Size(95, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Input File";
             // 
             // textBox1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(156, 86);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(156, 78);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(474, 28);
+            this.textBox1.Size = new System.Drawing.Size(474, 27);
             this.textBox1.TabIndex = 4;
             // 
             // btnTransferAsciiFiles
             // 
-            this.btnTransferAsciiFiles.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransferAsciiFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransferAsciiFiles.Location = new System.Drawing.Point(156, 130);
             this.btnTransferAsciiFiles.Name = "btnTransferAsciiFiles";
             this.btnTransferAsciiFiles.Size = new System.Drawing.Size(224, 35);
@@ -111,7 +111,7 @@ namespace HotFixUtility
             // 
             // btnTransferFiles
             // 
-            this.btnTransferFiles.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransferFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTransferFiles.Location = new System.Drawing.Point(406, 130);
             this.btnTransferFiles.Name = "btnTransferFiles";
             this.btnTransferFiles.Size = new System.Drawing.Size(224, 35);
@@ -121,7 +121,7 @@ namespace HotFixUtility
             // 
             // btnAddProlibFiles
             // 
-            this.btnAddProlibFiles.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddProlibFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProlibFiles.Location = new System.Drawing.Point(156, 180);
             this.btnAddProlibFiles.Name = "btnAddProlibFiles";
             this.btnAddProlibFiles.Size = new System.Drawing.Size(224, 35);
@@ -131,7 +131,7 @@ namespace HotFixUtility
             // 
             // btnAddAsciiFileProlib
             // 
-            this.btnAddAsciiFileProlib.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddAsciiFileProlib.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAsciiFileProlib.Location = new System.Drawing.Point(406, 180);
             this.btnAddAsciiFileProlib.Name = "btnAddAsciiFileProlib";
             this.btnAddAsciiFileProlib.Size = new System.Drawing.Size(224, 35);
@@ -141,7 +141,7 @@ namespace HotFixUtility
             // 
             // btnRTBTransfer
             // 
-            this.btnRTBTransfer.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRTBTransfer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRTBTransfer.Location = new System.Drawing.Point(156, 230);
             this.btnRTBTransfer.Name = "btnRTBTransfer";
             this.btnRTBTransfer.Size = new System.Drawing.Size(474, 35);
@@ -151,7 +151,7 @@ namespace HotFixUtility
             // 
             // btnCreateHF
             // 
-            this.btnCreateHF.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateHF.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateHF.Location = new System.Drawing.Point(156, 280);
             this.btnCreateHF.Name = "btnCreateHF";
             this.btnCreateHF.Size = new System.Drawing.Size(474, 35);

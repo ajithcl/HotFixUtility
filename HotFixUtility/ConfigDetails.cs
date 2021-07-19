@@ -85,6 +85,32 @@ namespace HotFixUtility
     {
     }
 
+    public class RTBMapping
+    {
+        public RTBMapping(string rtbModule, string rtbDirectory)
+        {
+            this.RTBModule = rtbModule;
+            this.RTBDirectory = rtbDirectory;
+        }
+        public RTBMapping()
+        {
+        }
+        public string RTBModule
+        {
+            get; set;
+        }
+        public string RTBDirectory
+        {
+            get; set;
+        }
+    }
+
+    [XmlRoot("RTBMappings")]
+    public class RTBMappingList : List<RTBMapping>
+    {
+    }
+
+    // root class
     public class Configurations
     {
         public string HotFixCommand
@@ -98,6 +124,10 @@ namespace HotFixUtility
         public EnvironmentList Environments
         {
             get;set;
+        }
+        public RTBMappingList RTBMappings
+        {
+            get; set;
         }
     }
 }
