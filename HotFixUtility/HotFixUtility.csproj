@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HotfixEnvironments.xml" />
+    <Content Include="icons\icons8-folder-20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

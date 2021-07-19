@@ -120,4 +120,25 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>152, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnFileSelect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACDSURBVDhPY6AVsAHiNCScAMS8QEwWkAfi00CMbGAdEK8DYrKAMRDPhDBRQA8QXwDiM0Ti+UDM
+        AsQ4DSQVLAVifRADZOBzIMZmKykYZAbILDABMp1SADIDbiA1vAwyY9RAysCogZQD2hkoB8ToxRc5GGQG
+        yCwwsAZibIpIwSAzqA0YGAD2bEEjXFLTQQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="btnLoadFile.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACmSURBVDhP7dTNCcJAEMXxFSxDBPGYLmINelN7sAILSCXpx6uQtKGg/wczIezBj53gyQc/WCbZ
+        xxxC0q8zwwZbUyOUIx6ZA4pzhkpORmfNiuOFlfkXvs8cDVpzQV6omT/Xu7rzMktcoctuXOh6rPFRvPSO
+        vQaWHW74qsyTl4bKPCt0UKnorFkovmloszzaKrxZKAv4L6qUOoZoMP7GSqhjyOQbTpSUnlabUnL8aP0t
+        AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

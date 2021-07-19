@@ -78,5 +78,6 @@ namespace HotFixUtility
         {
             ChangeBackgroundColor(this.btnTransferAsciiFiles, StatusTypes.Success);
         }
+
     }
 }
