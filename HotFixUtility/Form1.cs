@@ -26,28 +26,27 @@ namespace HotFixUtility
         public Form1()
         {
             InitializeComponent();
-            LoadInitialSetups();
-
-            if (!Operations.VerifyEnvironmentDirectories(""))
-            {
-                MessageBox.Show("Invalid directories found in configuration", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                //Close the form
-                Load += (s, e) => Close();
-                return;
-                
-            }    
+            LoadInitialSetups();  
         }
         private void LoadInitialSetups()
         {
             environmentXML = ConfigurationManager.AppSettings.Get("EnvironmentXML");
-            // What if Configuration file doesn't have the EnvironmentXML file entry?
-            // What if invalid file name?
-            // TODO : Error validation should be here.
+            // TODO: What if Configuration file doesn't have the EnvironmentXML file entry?
 
-            ConfigDetails confDtl = new ConfigDetails(environmentXML);
-            environmentList = confDtl.GetEnvironmentList();
+            try
+            {
+                ConfigDetails confDtl = new ConfigDetails(environmentXML);
+                environmentList = confDtl.GetEnvironmentList();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Configuration error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
+                //Close the form
+                Load += (s, e) => Close();
+                return;
+            }
+            
             // Get the list of environments in the combobox.
             cmbEnvironment.Items.AddRange(environmentList.ToArray());
 
@@ -93,6 +92,22 @@ namespace HotFixUtility
             if (txtInputFile.Text.Length == 0)
             {
                 errorProvider1.SetError(txtInputFile, "Select input file.");
+                return;
+            }
+            //TODO
+            List<ProgramData> programList = Operations.LoadInputFile(txtInputFile.Text);
+
+        }
+
+        private void cmbEnvironment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Verify all directories associated with this environment
+            if (cmbEnvironment.SelectedIndex != -1 
+                &&!Operations.VerifyEnvironmentDirectories(cmbEnvironment.Text))
+            {
+                MessageBox.Show("EnvironmentDirectory invalid.", "Environment error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbEnvironment.SelectedIndex = -1;
+                return;
             }
         }
     }

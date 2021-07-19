@@ -95,6 +95,7 @@ namespace HotFixUtility
             this.cmbEnvironment.Name = "cmbEnvironment";
             this.cmbEnvironment.Size = new System.Drawing.Size(224, 28);
             this.cmbEnvironment.TabIndex = 2;
+            this.cmbEnvironment.SelectedIndexChanged += new System.EventHandler(this.cmbEnvironment_SelectedIndexChanged);
             // 
             // label2
             // 

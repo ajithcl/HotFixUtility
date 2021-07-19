@@ -16,14 +16,14 @@
 		</Environment>
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>
-			<AsciiSourceDirectory>c1:\</AsciiSourceDirectory>
-			<AsciiDestinationDirectory>D1:\</AsciiDestinationDirectory>
-			<SourceDirectory>E1:\</SourceDirectory>
-			<TargetDirectory>F1:\</TargetDirectory>
-			<ProlibProenvCommand>G1:\</ProlibProenvCommand>
-			<AsciiProlibProenvCommand>H1:\</AsciiProlibProenvCommand>
-			<RTBSourceDirectory>I1:\</RTBSourceDirectory>
-			<RTBDestinationDirectory>J1:\</RTBDestinationDirectory>
+			<AsciiSourceDirectory>c:\</AsciiSourceDirectory>
+			<AsciiDestinationDirectory>D:\</AsciiDestinationDirectory>
+			<SourceDirectory>C:\</SourceDirectory>
+			<TargetDirectory>C:\</TargetDirectory>
+			<ProlibProenvCommand>C:\</ProlibProenvCommand>
+			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
+			<RTBSourceDirectory>C:\</RTBSourceDirectory>
+			<RTBDestinationDirectory>C:\</RTBDestinationDirectory>
 		</Environment>
 	</Environments>
 	<RTBMappings>

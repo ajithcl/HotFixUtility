@@ -23,10 +23,21 @@ namespace HotFixUtility
             this.configFilePath = configFilePath;
             XmlSerializer ser = new XmlSerializer(typeof(Configurations));
 
+
+            try
+            {
             using (StreamReader sr = new StreamReader(this.configFilePath))
             {
                 configResult = (Configurations)ser.Deserialize(sr);
-                //TODO: Error validation here.
+            }
+            }
+            catch (FileNotFoundException)
+            {
+                throw new Exception("Invalid configuration file.");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new Exception("Invalid configuration directory.");
             }
         }
         public List<string> GetEnvironmentList()
@@ -147,14 +158,15 @@ namespace HotFixUtility
         }
     }
 
-    // Data structure for holding Configuration details
-    public struct ConfigData
+    // Data structure for program input file
+    public class ProgramData
     {
-        public string TransferAllSource        {get; set;}
-        public string TransferAllDestination   {get; set;}
-        public string TransferAsciiSource      {get; set;}
-        public string TransferAsciiDestination {get; set;}
-        public string RTBSource                {get; set;}
-        public string RTBDestination           {get; set;}
+        public string ProgramName     {get; set;}
+        public string ProgramModule   {get; set;}
+        public ProgramData(string programName, string programModule)
+        {
+            this.ProgramName = programName;
+            this.ProgramModule = programModule;
+        }
     }
 }
