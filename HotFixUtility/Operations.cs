@@ -32,6 +32,10 @@ namespace HotFixUtility
 
         public static DataTable ReadCSVFile(string inputFileName)
         {
+            /*
+             * CSV file should contain in below format:
+             * program name, rtb module name
+             */
             DataTable dt = new DataTable();
             dt.Locale = System.Globalization.CultureInfo.CurrentCulture;
             string pathOnly = Path.GetDirectoryName(inputFileName);
@@ -63,13 +67,12 @@ namespace HotFixUtility
                 destinationFileName = destinationDirectory + programName;
                 try
                 {
-                    File.Copy(sourceFileName, destinationFileName);
+                    File.Copy(sourceFileName, destinationFileName,true);
                 }
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
                 }
-
             }
             return true;
         }

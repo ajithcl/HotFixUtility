@@ -72,7 +72,10 @@ namespace HotFixUtility
 
         private void btnTransferAsciiFiles_Click(object sender, EventArgs e)
         {
-            ChangeBackgroundColor(this.btnTransferAsciiFiles, StatusTypes.Success);
+            // TODO : Check if the rtb module is in <AsciiModuleList>
+            // TODO : If yes, copy the files.
+            ChangeBackgroundColor(this.btnTransferAsciiFiles, StatusTypes.Error);
+
         }
 
         private void btnFileSelect_Click(object sender, EventArgs e)
@@ -139,7 +142,6 @@ namespace HotFixUtility
 
         private void btnTransferFiles_Click(object sender, EventArgs e)
         {
-            //TODO
             string[] programList = new string[dtInputFile.Rows.Count];
             string sourceDir, destDir;
             for(int index=0; index <dtInputFile.Rows.Count; index++)
@@ -153,12 +155,13 @@ namespace HotFixUtility
                 destDir = env_detail.TargetDirectory;
 
                 Operations.CopyFiles(programList, sourceDir, destDir);
+                ChangeBackgroundColor(btnTransferFiles, StatusTypes.Success);
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error while copying", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+                ChangeBackgroundColor(btnTransferFiles, StatusTypes.Error);
+            }            
         }
     }
 }
