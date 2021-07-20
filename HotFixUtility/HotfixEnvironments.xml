@@ -17,7 +17,7 @@
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>
 			<AsciiSourceDirectory>c:\</AsciiSourceDirectory>
-			<AsciiDestinationDirectory>D:\</AsciiDestinationDirectory>
+			<AsciiDestinationDirectory>C:\</AsciiDestinationDirectory>
 			<SourceDirectory>C:\</SourceDirectory>
 			<TargetDirectory>C:\</TargetDirectory>
 			<ProlibProenvCommand>C:\</ProlibProenvCommand>

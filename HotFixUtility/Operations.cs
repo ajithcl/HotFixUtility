@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Data.OleDb;
+using System.Data;
 
 // This class should contain all the operations for this hotfix related process.
 
@@ -43,5 +45,25 @@ namespace HotFixUtility
             }
             return programList;
         }
+
+        public static DataTable ReadCSVFile(string inputFileName)
+        {
+            DataTable dt = new DataTable();
+            dt.Locale = System.Globalization.CultureInfo.CurrentCulture;
+            string pathOnly = Path.GetDirectoryName(inputFileName);
+            string fileName = Path.GetFileName(inputFileName);
+            string sql = "SELECT * FROM [" + fileName + "]";
+
+            using (OleDbConnection conn = new OleDbConnection(
+                @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" 
+                + pathOnly 
+                + ";Extended Properties=\"Text;HDR=No\""))
+            using (OleDbCommand cmd = new OleDbCommand(sql, conn))
+            using (OleDbDataAdapter adapter = new OleDbDataAdapter(cmd))
+            {
+                adapter.Fill(dt);
+            }
+            return dt;
+        svm }
     }
 }

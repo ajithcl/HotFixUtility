@@ -94,8 +94,13 @@ namespace HotFixUtility
                 errorProvider1.SetError(txtInputFile, "Select input file.");
                 return;
             }
-            //TODO
-            List<ProgramData> programList = Operations.LoadInputFile(txtInputFile.Text);
+
+            DataTable dt = Operations.ReadCSVFile(txtInputFile.Text);
+            if (dt.Rows.Count == 0)
+            {
+                MessageBox.Show("Blank input file", "Input file error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
 
         }
 
