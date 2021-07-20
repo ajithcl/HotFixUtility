@@ -135,6 +135,7 @@ namespace HotFixUtility
             this.btnTransferFiles.TabIndex = 7;
             this.btnTransferFiles.Text = "All Files";
             this.btnTransferFiles.UseVisualStyleBackColor = true;
+            this.btnTransferFiles.Click += new System.EventHandler(this.btnTransferFiles_Click);
             // 
             // btnAddProlibFiles
             // 

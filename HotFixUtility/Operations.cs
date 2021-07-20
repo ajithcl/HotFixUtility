@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Data.OleDb;
 using System.Data;
+using System.Windows.Forms;
 
 // This class should contain all the operations for this hotfix related process.
 
@@ -29,23 +30,6 @@ namespace HotFixUtility
                 return false;
         }
 
-        public static  List<ProgramData> LoadInputFile(string inputFileName)
-        {
-            List<ProgramData> programList = new List<ProgramData>();
-            using (var reader = new StreamReader(inputFileName))
-            {
-                while (!reader.EndOfStream)
-                {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-                    {
-                        programList.Add(new ProgramData(values[0], values[1]));
-                    };
-                }
-            }
-            return programList;
-        }
-
         public static DataTable ReadCSVFile(string inputFileName)
         {
             DataTable dt = new DataTable();
@@ -64,6 +48,30 @@ namespace HotFixUtility
                 adapter.Fill(dt);
             }
             return dt;
-        svm }
+        }
+
+        public static bool CopyFiles(string[] programNames, string sourceDirectory, string destinationDirectory)
+        {
+            string sourceFileName, destinationFileName;
+            foreach (string programName in programNames)
+            {
+                sourceFileName = sourceDirectory + programName;
+                if (!File.Exists(sourceFileName))
+                {
+                    throw new Exception($"{sourceFileName} not exists!");
+                }
+                destinationFileName = destinationDirectory + programName;
+                try
+                {
+                    File.Copy(sourceFileName, destinationFileName);
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+            }
+            return true;
+        }
     }
 }

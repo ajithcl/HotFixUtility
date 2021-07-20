@@ -18,8 +18,8 @@
 			<EnvironmentName>822</EnvironmentName>
 			<AsciiSourceDirectory>c:\</AsciiSourceDirectory>
 			<AsciiDestinationDirectory>C:\</AsciiDestinationDirectory>
-			<SourceDirectory>C:\</SourceDirectory>
-			<TargetDirectory>C:\</TargetDirectory>
+			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
+			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
 			<ProlibProenvCommand>C:\</ProlibProenvCommand>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>C:\</RTBSourceDirectory>

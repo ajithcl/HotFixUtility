@@ -16,6 +16,8 @@ namespace HotFixUtility
     {
         string environmentXML;
         List<string> environmentList;
+        DataTable dtInputFile;
+        private string selectedEnvironment;
 
         private enum StatusTypes
         {
@@ -49,6 +51,7 @@ namespace HotFixUtility
             
             // Get the list of environments in the combobox.
             cmbEnvironment.Items.AddRange(environmentList.ToArray());
+            UpdateProcessButtons(false);
 
         }
         private void ChangeBackgroundColor(System.Windows.Forms.Control uiElement ,StatusTypes status)
@@ -62,7 +65,7 @@ namespace HotFixUtility
                     uiElement.BackColor = System.Drawing.Color.Red;
                     break;
                 default:
-                    uiElement.BackColor = System.Drawing.Color.Gray;
+                    uiElement.BackColor = System.Drawing.Color.LightGray;
                     break;
             }
         }
@@ -95,12 +98,29 @@ namespace HotFixUtility
                 return;
             }
 
-            DataTable dt = Operations.ReadCSVFile(txtInputFile.Text);
-            if (dt.Rows.Count == 0)
+            dtInputFile = Operations.ReadCSVFile(txtInputFile.Text);
+            if (dtInputFile.Rows.Count == 0)
             {
                 MessageBox.Show("Blank input file", "Input file error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
+            UpdateProcessButtons(true);
+        }
+        private void UpdateProcessButtons(bool action)
+        {
+            btnTransferFiles.Enabled = action;
+            btnTransferAsciiFiles.Enabled = action;
+            btnAddAsciiFileProlib.Enabled = action;
+            btnAddProlibFiles.Enabled = action;
+            btnCreateHF.Enabled = action;
+            btnRTBTransfer.Enabled = action;
+
+            ChangeBackgroundColor(btnTransferFiles, StatusTypes.General);
+            ChangeBackgroundColor(btnTransferAsciiFiles, StatusTypes.General);
+            ChangeBackgroundColor(btnAddAsciiFileProlib, StatusTypes.General);
+            ChangeBackgroundColor(btnAddProlibFiles, StatusTypes.General);
+            ChangeBackgroundColor(btnCreateHF, StatusTypes.General);
+            ChangeBackgroundColor(btnRTBTransfer, StatusTypes.General);
 
         }
 
@@ -114,6 +134,31 @@ namespace HotFixUtility
                 cmbEnvironment.SelectedIndex = -1;
                 return;
             }
+            selectedEnvironment = cmbEnvironment.Text;
+        }
+
+        private void btnTransferFiles_Click(object sender, EventArgs e)
+        {
+            //TODO
+            string[] programList = new string[dtInputFile.Rows.Count];
+            string sourceDir, destDir;
+            for(int index=0; index <dtInputFile.Rows.Count; index++)
+            {
+                programList[index] = dtInputFile.Rows[index][0].ToString();
+            }
+            try
+            {
+                Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+                sourceDir = env_detail.SourceDirectory;
+                destDir = env_detail.TargetDirectory;
+
+                Operations.CopyFiles(programList, sourceDir, destDir);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error while copying", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
