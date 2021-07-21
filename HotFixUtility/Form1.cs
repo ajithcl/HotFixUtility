@@ -194,5 +194,12 @@ namespace HotFixUtility
                 ChangeBackgroundColor(btnTransferFiles, StatusTypes.Error);
             }            
         }
+
+        private void btnAddProlibFiles_Click(object sender, EventArgs e)
+        {
+            //TODO
+            //Ref: https://stackoverflow.com/questions/5519328/executing-batch-file-in-c-sharp
+            //System.Diagnostics.Process.Start(@"c:\batchfilename.bat", "\"1st\" \"2nd\"")
+        }
     }
 }

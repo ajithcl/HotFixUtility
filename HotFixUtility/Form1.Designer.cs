@@ -67,7 +67,7 @@ namespace HotFixUtility
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(732, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -146,6 +146,7 @@ namespace HotFixUtility
             this.btnAddProlibFiles.TabIndex = 8;
             this.btnAddProlibFiles.Text = "Add files";
             this.btnAddProlibFiles.UseVisualStyleBackColor = true;
+            this.btnAddProlibFiles.Click += new System.EventHandler(this.btnAddProlibFiles_Click);
             // 
             // btnAddAsciiFileProlib
             // 
@@ -296,7 +297,7 @@ namespace HotFixUtility
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 296);
+            this.ClientSize = new System.Drawing.Size(722, 296);
             this.Controls.Add(this.btnHelpHF);
             this.Controls.Add(this.btnHelpRtb);
             this.Controls.Add(this.btnHelpProlib);
