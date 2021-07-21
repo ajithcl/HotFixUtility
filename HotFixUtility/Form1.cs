@@ -18,6 +18,7 @@ namespace HotFixUtility
         List<string> environmentList;
         DataTable dtInputFile;
         private string selectedEnvironment;
+        public ConfigDetails confDtl;
 
         private enum StatusTypes
         {
@@ -37,7 +38,7 @@ namespace HotFixUtility
 
             try
             {
-                ConfigDetails confDtl = new ConfigDetails(environmentXML);
+                confDtl = new ConfigDetails(environmentXML);
                 environmentList = confDtl.GetEnvironmentList();
             }
             catch (Exception ex)
@@ -74,8 +75,37 @@ namespace HotFixUtility
         {
             // TODO : Check if the rtb module is in <AsciiModuleList>
             // TODO : If yes, copy the files.
-            ChangeBackgroundColor(this.btnTransferAsciiFiles, StatusTypes.Error);
+            ArrayList programList = new ArrayList();
+            string sourceDir, destDir;
+            string asciiModuleList = confDtl.GetAsciiModuleList();            
 
+            for (int index=0; index<dtInputFile.Rows.Count; index++)
+            {
+                string rtbModule = dtInputFile.Rows[index][1].ToString();
+                if (asciiModuleList.Split(',').Contains(rtbModule))
+                {
+                    programList.Add(dtInputFile.Rows[index][0].ToString());
+                }
+            }
+            if (programList.Count == 0)
+            {
+                ChangeBackgroundColor(btnTransferAsciiFiles, StatusTypes.Success);
+                return;
+            }
+            try
+            {
+                Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+                sourceDir = env_detail.AsciiSourceDirectory;
+                destDir = env_detail.AsciiDestinationDirectory;
+
+                Operations.CopyFiles(programList, sourceDir, destDir);
+                ChangeBackgroundColor(btnTransferAsciiFiles, StatusTypes.Success);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error while copying", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ChangeBackgroundColor(btnTransferAsciiFiles, StatusTypes.Error);
+            }
         }
 
         private void btnFileSelect_Click(object sender, EventArgs e)
@@ -108,6 +138,7 @@ namespace HotFixUtility
                 return;
             }
             UpdateProcessButtons(true);
+            ChangeBackgroundColor(btnLoadFile, StatusTypes.Success);
         }
         private void UpdateProcessButtons(bool action)
         {
@@ -142,11 +173,11 @@ namespace HotFixUtility
 
         private void btnTransferFiles_Click(object sender, EventArgs e)
         {
-            string[] programList = new string[dtInputFile.Rows.Count];
+            ArrayList programList = new ArrayList();
             string sourceDir, destDir;
             for(int index=0; index <dtInputFile.Rows.Count; index++)
             {
-                programList[index] = dtInputFile.Rows[index][0].ToString();
+                programList.Add(dtInputFile.Rows[index][0].ToString());
             }
             try
             {

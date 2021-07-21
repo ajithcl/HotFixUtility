@@ -7,6 +7,7 @@ using System.IO;
 using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections;
 
 // This class should contain all the operations for this hotfix related process.
 
@@ -54,7 +55,7 @@ namespace HotFixUtility
             return dt;
         }
 
-        public static bool CopyFiles(string[] programNames, string sourceDirectory, string destinationDirectory)
+        public static bool CopyFiles(ArrayList programNames, string sourceDirectory, string destinationDirectory)
         {
             string sourceFileName, destinationFileName;
             foreach (string programName in programNames)

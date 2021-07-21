@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace HotFixUtility
 {
-    class ConfigDetails
+    public class ConfigDetails
     {
         public string configFilePath;
         static Configurations configResult;
@@ -49,6 +49,11 @@ namespace HotFixUtility
                 environmentList.Add(env.EnvironmentName);
             }
             return environmentList;
+        }
+
+        public string GetAsciiModuleList()
+        {
+            return configResult.AsciiModuleList;
         }
 
         public static Environment GetEnvironmentDetails(string environmentName)
