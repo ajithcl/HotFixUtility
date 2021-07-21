@@ -7,19 +7,37 @@ using System.Xml.Serialization;
 
 namespace HotFixUtility
 {
-    class ConfigDetails
+    public class ConfigDetails
     {
-        string configFilePath;
-        Configurations configResult;
+        public string configFilePath;
+        static Configurations configResult;
+
+        // LastMessage - Property to hold the message from this class
+        public static string LastMessage
+        {
+            get; private set;
+        }
+
         public ConfigDetails(string configFilePath)
         {
             this.configFilePath = configFilePath;
             XmlSerializer ser = new XmlSerializer(typeof(Configurations));
 
+
+            try
+            {
             using (StreamReader sr = new StreamReader(this.configFilePath))
             {
                 configResult = (Configurations)ser.Deserialize(sr);
-                //TODO: Error validation here.
+            }
+            }
+            catch (FileNotFoundException)
+            {
+                throw new Exception("Invalid configuration file.");
+            }
+            catch (DirectoryNotFoundException)
+            {
+                throw new Exception("Invalid configuration directory.");
             }
         }
         public List<string> GetEnvironmentList()
@@ -30,10 +48,25 @@ namespace HotFixUtility
             {
                 environmentList.Add(env.EnvironmentName);
             }
-
-
             return environmentList;
-            
+        }
+
+        public string GetAsciiModuleList()
+        {
+            return configResult.AsciiModuleList;
+        }
+
+        public static Environment GetEnvironmentDetails(string environmentName)
+        {
+            foreach (Environment env in configResult.Environments)
+            {
+                if (env.EnvironmentName == environmentName)
+                {
+                    return env;
+                }
+            }
+            LastMessage = "No Environment found.";
+            return null;          
         }
     }
     [XmlType("Environment")]
@@ -71,8 +104,7 @@ namespace HotFixUtility
             get; set;
         }
         public string RTBSourceDirectory
-        {
-            get; set;
+        {            get; set;
         }
         public string RTBDestinationDirectory
         {
@@ -128,6 +160,18 @@ namespace HotFixUtility
         public RTBMappingList RTBMappings
         {
             get; set;
+        }
+    }
+
+    // Data structure for program input file
+    public class ProgramData
+    {
+        public string ProgramName     {get; set;}
+        public string ProgramModule   {get; set;}
+        public ProgramData(string programName, string programModule)
+        {
+            this.ProgramName = programName;
+            this.ProgramModule = programModule;
         }
     }
 }

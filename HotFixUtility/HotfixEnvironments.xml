@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<HotFixCommand>c:\hf.bat</HotFixCommand>
-	<AsciiModuleList>A,B,C</AsciiModuleList>
+	<AsciiModuleList>ascii</AsciiModuleList>
 	<Environments>
 		<Environment>
 			<EnvironmentName>900</EnvironmentName>
@@ -16,14 +16,14 @@
 		</Environment>
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>
-			<AsciiSourceDirectory>c1:\</AsciiSourceDirectory>
-			<AsciiDestinationDirectory>D1:\</AsciiDestinationDirectory>
-			<SourceDirectory>E1:\</SourceDirectory>
-			<TargetDirectory>F1:\</TargetDirectory>
-			<ProlibProenvCommand>G1:\</ProlibProenvCommand>
-			<AsciiProlibProenvCommand>H1:\</AsciiProlibProenvCommand>
-			<RTBSourceDirectory>I1:\</RTBSourceDirectory>
-			<RTBDestinationDirectory>J1:\</RTBDestinationDirectory>
+			<AsciiSourceDirectory>C:\Users\achandranlalit\Downloads\Source\</AsciiSourceDirectory>
+			<AsciiDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiDestinationDirectory>
+			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
+			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
+			<ProlibProenvCommand>C:\</ProlibProenvCommand>
+			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
+			<RTBSourceDirectory>C:\</RTBSourceDirectory>
+			<RTBDestinationDirectory>C:\</RTBDestinationDirectory>
 		</Environment>
 	</Environments>
 	<RTBMappings>
