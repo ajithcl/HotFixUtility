@@ -197,10 +197,18 @@ namespace HotFixUtility
 
         private void btnAddProlibFiles_Click(object sender, EventArgs e)
         {
+            string proenvCommand = confDtl.GetProEnvCommand();
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+             
             //TODO
-            //Ref: https://stackoverflow.com/questions/5519328/executing-batch-file-in-c-sharp
-            // "\"1st\" \"2nd\""
-            System.Diagnostics.Process.Start(@"C:\Progress\OpenEdge\bin\proenv.bat", @"/c cd C:\Users\achandranlalit\Desktop\W_822G");
+
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+            startInfo.FileName = proenvCommand;
+            startInfo.WorkingDirectory = env_detail.ProEnvWorkingDirectory;
+            process.StartInfo = startInfo;
+            process.Start();
 
         }
     }
