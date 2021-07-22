@@ -199,7 +199,9 @@ namespace HotFixUtility
         {
             //TODO
             //Ref: https://stackoverflow.com/questions/5519328/executing-batch-file-in-c-sharp
-            //System.Diagnostics.Process.Start(@"c:\batchfilename.bat", "\"1st\" \"2nd\"")
+            // "\"1st\" \"2nd\""
+            System.Diagnostics.Process.Start(@"C:\Progress\OpenEdge\bin\proenv.bat", @"/c cd C:\Users\achandranlalit\Desktop\W_822G");
+
         }
     }
 }
