@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Collections;
+using System.IO;
 
 namespace HotFixUtility
 {
     public partial class Form1 : Form
     {
-        string environmentXML;
+        string environmentXML,applicationDirectory;
         List<string> environmentList;
         DataTable dtInputFile;
         private string selectedEnvironment;
@@ -34,8 +35,9 @@ namespace HotFixUtility
         private void LoadInitialSetups()
         {
             environmentXML = ConfigurationManager.AppSettings.Get("EnvironmentXML");
+            applicationDirectory = ConfigurationManager.AppSettings.Get("ApplicationDirectory");
             // TODO: What if Configuration file doesn't have the EnvironmentXML file entry?
-
+            // TODO : Error validation for Application directory.
             try
             {
                 confDtl = new ConfigDetails(environmentXML);
@@ -197,10 +199,22 @@ namespace HotFixUtility
 
         private void btnAddProlibFiles_Click(object sender, EventArgs e)
         {
+            List<string> programList = new List<string>();
             string proenvCommand = confDtl.GetProEnvCommand();
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
-             
-            //TODO
+            string fileName = applicationDirectory + "prolibcommands.txt";
+            //File.Create(fileName);
+
+            for (int index = 0; index < dtInputFile.Rows.Count; index++)
+            {
+                string cmdTxt = $"prolib -n -v -r hotfix.pl {dtInputFile.Rows[index][0].ToString()}";
+                programList.Add(cmdTxt);
+            }
+            File.WriteAllLines(fileName, programList);
+
+
+
+            //TODO : File validation missing.
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
@@ -210,6 +224,8 @@ namespace HotFixUtility
             process.StartInfo = startInfo;
             process.Start();
 
+            //Start notedpad
+            System.Diagnostics.Process.Start(fileName);
         }
     }
 }
