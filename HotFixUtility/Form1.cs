@@ -226,6 +226,9 @@ namespace HotFixUtility
 
             //Start notedpad
             System.Diagnostics.Process.Start(fileName);
+
+            //Set the back ground color to green.
+            ChangeBackgroundColor(btnAddProlibFiles, StatusTypes.Success);
         }
     }
 }
