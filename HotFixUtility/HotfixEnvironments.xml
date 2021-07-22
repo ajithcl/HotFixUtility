@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0"?>
 <Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ProenvCommand>C:\Progress\OpenEdge\bin\proenv.bat</ProenvCommand>
 	<HotFixCommand>c:\hf.bat</HotFixCommand>
 	<AsciiModuleList>ascii</AsciiModuleList>
 	<Environments>
@@ -9,7 +10,7 @@
 			<AsciiDestinationDirectory>W:\Version\900A\Service1\hotfix\Ascii\</AsciiDestinationDirectory>
 			<SourceDirectory>W:\Translation\900A\Programs\</SourceDirectory>
 			<TargetDirectory>W:\Version\900A\Service1\hotfix\</TargetDirectory>
-			<ProlibProenvCommand>G:\</ProlibProenvCommand>
+			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G</ProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>W:\Version\900A\Service1\hotfix\_DOS_BOX_OE11.bat</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>W:\RTB\900A\FO\</RTBSourceDirectory>
 			<RTBDestinationDirectory>W:\Version\900A\Service1\</RTBDestinationDirectory>
@@ -20,7 +21,7 @@
 			<AsciiDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiDestinationDirectory>
 			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
 			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
-			<ProlibProenvCommand>C:\</ProlibProenvCommand>
+			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G</ProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>C:\</RTBSourceDirectory>
 			<RTBDestinationDirectory>C:\</RTBDestinationDirectory>

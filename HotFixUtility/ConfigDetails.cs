@@ -56,6 +56,11 @@ namespace HotFixUtility
             return configResult.AsciiModuleList;
         }
 
+        public string GetProEnvCommand()
+        {
+            return configResult.ProenvCommand;
+        }
+
         public static Environment GetEnvironmentDetails(string environmentName)
         {
             foreach (Environment env in configResult.Environments)
@@ -95,7 +100,7 @@ namespace HotFixUtility
         {
             get; set;
         }
-        public string ProlibProenvCommand
+        public string ProEnvWorkingDirectory
         {
             get; set;
         }
@@ -145,6 +150,10 @@ namespace HotFixUtility
     // root class
     public class Configurations
     {
+        public string ProenvCommand
+        {
+            get;set;
+        }
         public string HotFixCommand
         {
             get; set;    
