@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ProenvCommand>C:\Progress\OpenEdge\bin\proenv.bat</ProenvCommand>
-	<HotFixCommand>c:\hf.bat</HotFixCommand>
+	<HotFixCommand>C:\Progress\OpenEdge\bin\proenv.bat</HotFixCommand>
 	<AsciiModuleList>ascii</AsciiModuleList>
 	<Environments>
 		<Environment>
@@ -10,10 +10,12 @@
 			<AsciiDestinationDirectory>W:\Version\900A\Service1\hotfix\Ascii\</AsciiDestinationDirectory>
 			<SourceDirectory>W:\Translation\900A\Programs\</SourceDirectory>
 			<TargetDirectory>W:\Version\900A\Service1\hotfix\</TargetDirectory>
-			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G</ProEnvWorkingDirectory>
+			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G\</ProEnvWorkingDirectory>
+			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>W:\Version\900A\Service1\hotfix\_DOS_BOX_OE11.bat</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>W:\RTB\900A\FO\</RTBSourceDirectory>
 			<RTBDestinationDirectory>W:\Version\900A\Service1\</RTBDestinationDirectory>
+			<HotFixCommandWorkingDirectory>C:\Users\achandranlalit\Downloads\Source\</HotFixCommandWorkingDirectory>
 		</Environment>
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>
@@ -21,10 +23,12 @@
 			<AsciiDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiDestinationDirectory>
 			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
 			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
-			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G</ProEnvWorkingDirectory>
+			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G\</ProEnvWorkingDirectory>
+			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
-			<RTBSourceDirectory>C:\</RTBSourceDirectory>
-			<RTBDestinationDirectory>C:\</RTBDestinationDirectory>
+			<RTBSourceDirectory>C:\Users\achandranlalit\Downloads\Source\</RTBSourceDirectory>
+			<RTBDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\RTB\</RTBDestinationDirectory>
+			<HotFixCommandWorkingDirectory>C:\Users\achandranlalit\Downloads\Source\</HotFixCommandWorkingDirectory>
 		</Environment>
 	</Environments>
 	<RTBMappings>
@@ -40,5 +44,17 @@
 			<RTBModule>ascshared</RTBModule>
 			<RTBDirectory>rmodall</RTBDirectory>
 		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>transhared</RTBModule>
+			<RTBDirectory>rmodulus</RTBDirectory>
+		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>transhared</RTBModule>
+			<RTBDirectory>allwin</RTBDirectory>
+		</RTBMapping>	
+		<RTBMapping>
+			<RTBModule>interfaces</RTBModule>
+			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>		
 	</RTBMappings>
 </Configurations>

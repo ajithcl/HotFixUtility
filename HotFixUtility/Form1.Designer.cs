@@ -56,15 +56,20 @@ namespace HotFixUtility
             this.btnHelpRtb = new System.Windows.Forms.Button();
             this.btnHelpHF = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem});
+            this.settingsToolStripMenuItem,
+            this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(722, 28);
@@ -93,7 +98,7 @@ namespace HotFixUtility
             this.cmbEnvironment.FormattingEnabled = true;
             this.cmbEnvironment.Location = new System.Drawing.Point(135, 38);
             this.cmbEnvironment.Name = "cmbEnvironment";
-            this.cmbEnvironment.Size = new System.Drawing.Size(224, 28);
+            this.cmbEnvironment.Size = new System.Drawing.Size(474, 28);
             this.cmbEnvironment.TabIndex = 2;
             this.cmbEnvironment.SelectedIndexChanged += new System.EventHandler(this.cmbEnvironment_SelectedIndexChanged);
             // 
@@ -157,6 +162,7 @@ namespace HotFixUtility
             this.btnAddAsciiFileProlib.TabIndex = 9;
             this.btnAddAsciiFileProlib.Text = "Add Ascii files";
             this.btnAddAsciiFileProlib.UseVisualStyleBackColor = true;
+            this.btnAddAsciiFileProlib.Click += new System.EventHandler(this.btnAddAsciiFileProlib_Click);
             // 
             // btnRTBTransfer
             // 
@@ -167,6 +173,7 @@ namespace HotFixUtility
             this.btnRTBTransfer.TabIndex = 10;
             this.btnRTBTransfer.Text = "Transfer";
             this.btnRTBTransfer.UseVisualStyleBackColor = true;
+            this.btnRTBTransfer.Click += new System.EventHandler(this.btnRTBTransfer_Click);
             // 
             // btnCreateHF
             // 
@@ -177,6 +184,7 @@ namespace HotFixUtility
             this.btnCreateHF.TabIndex = 11;
             this.btnCreateHF.Text = "Create";
             this.btnCreateHF.UseVisualStyleBackColor = true;
+            this.btnCreateHF.Click += new System.EventHandler(this.btnCreateHF_Click);
             // 
             // openFileDialog1
             // 
@@ -293,11 +301,37 @@ namespace HotFixUtility
             this.toolTip1.SetToolTip(this.btnHelpHF, "Help on Hotfix command.");
             this.btnHelpHF.UseVisualStyleBackColor = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel1});
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 279);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(722, 26);
+            this.statusStrip1.TabIndex = 22;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel1
+            // 
+            this.statusLabel1.Name = "statusLabel1";
+            this.statusLabel1.Size = new System.Drawing.Size(15, 20);
+            this.statusLabel1.Text = "..";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 296);
+            this.ClientSize = new System.Drawing.Size(722, 305);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnHelpHF);
             this.Controls.Add(this.btnHelpRtb);
             this.Controls.Add(this.btnHelpProlib);
@@ -325,6 +359,8 @@ namespace HotFixUtility
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +393,9 @@ namespace HotFixUtility
         private System.Windows.Forms.Button btnHelpProlib;
         private System.Windows.Forms.Button btnHelpTransfer;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
 

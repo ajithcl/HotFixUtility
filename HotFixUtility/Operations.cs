@@ -61,20 +61,36 @@ namespace HotFixUtility
             foreach (string programName in programNames)
             {
                 sourceFileName = sourceDirectory + programName;
-                if (!File.Exists(sourceFileName))
-                {
-                    throw new Exception($"{sourceFileName} not exists!");
-                }
                 destinationFileName = destinationDirectory + programName;
+                
                 try
                 {
-                    File.Copy(sourceFileName, destinationFileName,true);
+                    CopyFile(sourceFileName, destinationFileName);
                 }
                 catch (Exception ex)
                 {
                     throw new Exception(ex.Message);
                 }
             }
+            return true;
+        }
+
+        public static bool CopyFile(string sourceFileName, string destinationFileName)
+        {            
+            if (!File.Exists(sourceFileName))
+            {
+                throw new Exception($" Source {sourceFileName} not exists!");
+            }
+
+            try
+            {
+                File.Copy(sourceFileName, destinationFileName, true);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
             return true;
         }
     }

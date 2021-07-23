@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -60,6 +61,10 @@ namespace HotFixUtility
         {
             return configResult.ProenvCommand;
         }
+        public string GetHotfixCommand()
+        {
+            return configResult.HotFixCommand;
+        }
 
         public static Environment GetEnvironmentDetails(string environmentName)
         {
@@ -72,6 +77,23 @@ namespace HotFixUtility
             }
             LastMessage = "No Environment found.";
             return null;          
+        }
+
+        public static DataTable GetRTBMappings()
+        {
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Module", typeof(string));
+            dt.Columns.Add("Directory", typeof(string));
+
+            //Ref : https://www.c-sharpcorner.com/UploadFile/0f68f2/querying-a-data-table-using-select-method-and-lambda-express/
+            foreach (RTBMapping item in configResult.RTBMappings)
+            {
+                dt.Rows.Add(item.RTBModule, item.RTBDirectory);
+            }
+
+
+            return dt;
+            //TODO
         }
     }
     [XmlType("Environment")]
@@ -104,6 +126,10 @@ namespace HotFixUtility
         {
             get; set;
         }
+        public string AsciiProEnvWorkingDirectory
+        {
+            get; set;
+        }
         public string AsciiProlibProenvCommand
         {
             get; set;
@@ -112,6 +138,10 @@ namespace HotFixUtility
         {            get; set;
         }
         public string RTBDestinationDirectory
+        {
+            get; set;
+        }
+        public string HotFixCommandWorkingDirectory
         {
             get; set;
         }

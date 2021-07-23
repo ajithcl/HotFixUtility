@@ -141,6 +141,7 @@ namespace HotFixUtility
             }
             UpdateProcessButtons(true);
             ChangeBackgroundColor(btnLoadFile, StatusTypes.Success);
+            updateStatusLabel("Program list loaded.", StatusTypes.Success);
         }
         private void UpdateProcessButtons(bool action)
         {
@@ -197,17 +198,60 @@ namespace HotFixUtility
             }            
         }
 
+        private void btnAddAsciiFileProlib_Click(object sender, EventArgs e)
+        {
+            List<string> programList = new List<string>();
+            string proenvCommand = confDtl.GetProEnvCommand();
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+            string fileName = applicationDirectory + "Asciiprolibcommands.txt";
+            string asciiModuleList = confDtl.GetAsciiModuleList();
+            string cmdTxt;
+
+            for (int index = 0; index < dtInputFile.Rows.Count; index++)
+            {
+                string rtbModule = dtInputFile.Rows[index][1].ToString();
+                if (asciiModuleList.Split(',').Contains(rtbModule))
+                {
+                    // TODO : Hard coded command need to remove.
+                    cmdTxt = $"prolib ahotfix.pl -n -v -r {dtInputFile.Rows[index][0].ToString()}";
+                    programList.Add(cmdTxt);
+                }                   
+            }
+            if (programList.Count == 0)
+            {
+                return;
+                // TODO : Show this message in the status bar.
+            }
+            File.WriteAllLines(fileName, programList);
+
+            // TODO : File validation is missing.
+            // Start the proenv console
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+            startInfo.FileName = proenvCommand;
+            startInfo.WorkingDirectory = env_detail.AsciiProEnvWorkingDirectory;
+            process.StartInfo = startInfo;
+            process.Start();
+
+            // Start nortepad
+            System.Diagnostics.Process.Start(fileName);
+
+            // Set the background to green /success
+            ChangeBackgroundColor(btnAddAsciiFileProlib, StatusTypes.Success);
+        }
+
         private void btnAddProlibFiles_Click(object sender, EventArgs e)
         {
             List<string> programList = new List<string>();
             string proenvCommand = confDtl.GetProEnvCommand();
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
             string fileName = applicationDirectory + "prolibcommands.txt";
-            //File.Create(fileName);
-
+            
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
             {
-                string cmdTxt = $"prolib -n -v -r hotfix.pl {dtInputFile.Rows[index][0].ToString()}";
+                // TODO : Hard coded command need to remove.
+                string cmdTxt = $"prolib hotfix.pl -n -v -r {dtInputFile.Rows[index][0].ToString()}";
                 programList.Add(cmdTxt);
             }
             File.WriteAllLines(fileName, programList);
@@ -215,7 +259,7 @@ namespace HotFixUtility
 
 
             //TODO : File validation missing.
-
+            // Start the proenv console
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
@@ -229,6 +273,92 @@ namespace HotFixUtility
 
             //Set the back ground color to green.
             ChangeBackgroundColor(btnAddProlibFiles, StatusTypes.Success);
+        }
+
+        private void btnRTBTransfer_Click(object sender, EventArgs e)
+        {
+            string sourceDir, sourceFile, destinationDirectory,destinationFile;
+
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+            sourceDir = env_detail.RTBSourceDirectory;
+            destinationDirectory = env_detail.RTBDestinationDirectory;
+
+            // Get the RTB mappings from the environment file.
+            DataTable dtRTBMappings = ConfigDetails.GetRTBMappings();
+
+            DataTable dtInputFileRTB = new DataTable();
+            dtInputFileRTB.Columns.Add("FileName", typeof(string));
+            dtInputFileRTB.Columns.Add("SourceFile", typeof(string));
+            dtInputFileRTB.Columns.Add("RTBModule", typeof(string));
+
+            foreach(DataRow row in dtInputFile.Rows)
+            {
+                // source file = Source Directory + rtb module +File name 
+                sourceFile = sourceDir + row.ItemArray[1] + @"\" + row.ItemArray[2];
+                dtInputFileRTB.Rows.Add(row.ItemArray[2], sourceFile, row.ItemArray[1]);
+            }
+
+            foreach (DataRow rowInput in dtInputFileRTB.Rows)
+            {
+                foreach (DataRow rowRTB in dtRTBMappings.Select($"Module = '{rowInput.Field<string>("RTBModule")}'"))
+                {
+                    sourceFile = rowInput.Field<string>("SourceFile");
+                    destinationFile = destinationDirectory + rowRTB.Field<string>("Directory") + @"/" + rowInput.Field<string>("FileName");
+
+                    try
+                    {
+                        Operations.CopyFile(sourceFile, destinationFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Transfer error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ChangeBackgroundColor(btnRTBTransfer, StatusTypes.Error);
+                        return;
+                    }
+                }
+            }
+            ChangeBackgroundColor(btnRTBTransfer, StatusTypes.Success);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Input file csv format :\nCompiled object name, RTB module name, source program name",
+                            "Inforamation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnCreateHF_Click(object sender, EventArgs e)
+        {
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+            startInfo.FileName = confDtl.GetHotfixCommand();
+            startInfo.WorkingDirectory = env_detail.HotFixCommandWorkingDirectory;
+            process.StartInfo = startInfo;
+            process.Start();
+
+            ChangeBackgroundColor(btnCreateHF, StatusTypes.Success);
+        }
+
+        private void updateStatusLabel(string message, StatusTypes status)
+        {
+            statusLabel1.Text = message;
+            switch (status)
+            {
+                case StatusTypes.Success:
+                    statusLabel1.ForeColor = System.Drawing.Color.Green;
+                    break;
+                case StatusTypes.Error:
+                    statusLabel1.ForeColor = System.Drawing.Color.Red;
+                    break;
+                case StatusTypes.General: 
+                    statusLabel1.ForeColor = System.Drawing.Color.Gray;
+                    break;
+                default:
+                    statusLabel1.ForeColor = System.Drawing.Color.Gray;
+                    break;
+            }
         }
     }
 }
