@@ -157,6 +157,7 @@ namespace HotFixUtility
             this.btnAddAsciiFileProlib.TabIndex = 9;
             this.btnAddAsciiFileProlib.Text = "Add Ascii files";
             this.btnAddAsciiFileProlib.UseVisualStyleBackColor = true;
+            this.btnAddAsciiFileProlib.Click += new System.EventHandler(this.btnAddAsciiFileProlib_Click);
             // 
             // btnRTBTransfer
             // 

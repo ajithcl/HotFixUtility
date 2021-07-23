@@ -11,6 +11,7 @@
 			<SourceDirectory>W:\Translation\900A\Programs\</SourceDirectory>
 			<TargetDirectory>W:\Version\900A\Service1\hotfix\</TargetDirectory>
 			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G</ProEnvWorkingDirectory>
+			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>W:\Version\900A\Service1\hotfix\_DOS_BOX_OE11.bat</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>W:\RTB\900A\FO\</RTBSourceDirectory>
 			<RTBDestinationDirectory>W:\Version\900A\Service1\</RTBDestinationDirectory>
@@ -22,6 +23,7 @@
 			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
 			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
 			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G</ProEnvWorkingDirectory>
+			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>C:\</RTBSourceDirectory>
 			<RTBDestinationDirectory>C:\</RTBDestinationDirectory>

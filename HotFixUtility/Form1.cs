@@ -197,17 +197,60 @@ namespace HotFixUtility
             }            
         }
 
+        private void btnAddAsciiFileProlib_Click(object sender, EventArgs e)
+        {
+            List<string> programList = new List<string>();
+            string proenvCommand = confDtl.GetProEnvCommand();
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+            string fileName = applicationDirectory + "Asciiprolibcommands.txt";
+            string asciiModuleList = confDtl.GetAsciiModuleList();
+            string cmdTxt;
+
+            for (int index = 0; index < dtInputFile.Rows.Count; index++)
+            {
+                string rtbModule = dtInputFile.Rows[index][1].ToString();
+                if (asciiModuleList.Split(',').Contains(rtbModule))
+                {
+                    // TODO : Hard coded command need to remove.
+                    cmdTxt = $"prolib ahotfix.pl -n -v -r {dtInputFile.Rows[index][0].ToString()}";
+                    programList.Add(cmdTxt);
+                }                   
+            }
+            if (programList.Count == 0)
+            {
+                return;
+                // TODO : Show this message in the status bar.
+            }
+            File.WriteAllLines(fileName, programList);
+
+            // TODO : File validation is missing.
+            // Start the proenv console
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+            startInfo.FileName = proenvCommand;
+            startInfo.WorkingDirectory = env_detail.AsciiProEnvWorkingDirectory;
+            process.StartInfo = startInfo;
+            process.Start();
+
+            // Start nortepad
+            System.Diagnostics.Process.Start(fileName);
+
+            // Set the background to green /success
+            ChangeBackgroundColor(btnAddAsciiFileProlib, StatusTypes.Success);
+        }
+
         private void btnAddProlibFiles_Click(object sender, EventArgs e)
         {
             List<string> programList = new List<string>();
             string proenvCommand = confDtl.GetProEnvCommand();
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
             string fileName = applicationDirectory + "prolibcommands.txt";
-            //File.Create(fileName);
-
+            
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
             {
-                string cmdTxt = $"prolib -n -v -r hotfix.pl {dtInputFile.Rows[index][0].ToString()}";
+                // TODO : Hard coded command need to remove.
+                string cmdTxt = $"prolib hotfix.pl -n -v -r {dtInputFile.Rows[index][0].ToString()}";
                 programList.Add(cmdTxt);
             }
             File.WriteAllLines(fileName, programList);
@@ -215,7 +258,7 @@ namespace HotFixUtility
 
 
             //TODO : File validation missing.
-
+            // Start the proenv console
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;

@@ -104,6 +104,10 @@ namespace HotFixUtility
         {
             get; set;
         }
+        public string AsciiProEnvWorkingDirectory
+        {
+            get; set;
+        }
         public string AsciiProlibProenvCommand
         {
             get; set;
