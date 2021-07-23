@@ -141,6 +141,7 @@ namespace HotFixUtility
             }
             UpdateProcessButtons(true);
             ChangeBackgroundColor(btnLoadFile, StatusTypes.Success);
+            updateStatusLabel("Program list loaded.", StatusTypes.Success);
         }
         private void UpdateProcessButtons(bool action)
         {
@@ -272,6 +273,26 @@ namespace HotFixUtility
 
             //Set the back ground color to green.
             ChangeBackgroundColor(btnAddProlibFiles, StatusTypes.Success);
+        }
+
+        private void updateStatusLabel(string message, StatusTypes status)
+        {
+            statusLabel1.Text = message;
+            switch (status)
+            {
+                case StatusTypes.Success:
+                    statusLabel1.ForeColor = System.Drawing.Color.Green;
+                    break;
+                case StatusTypes.Error:
+                    statusLabel1.ForeColor = System.Drawing.Color.Red;
+                    break;
+                case StatusTypes.General: 
+                    statusLabel1.ForeColor = System.Drawing.Color.Gray;
+                    break;
+                default:
+                    statusLabel1.ForeColor = System.Drawing.Color.Gray;
+                    break;
+            }
         }
     }
 }

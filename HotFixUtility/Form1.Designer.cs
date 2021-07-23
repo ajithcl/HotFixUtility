@@ -56,8 +56,11 @@ namespace HotFixUtility
             this.btnHelpRtb = new System.Windows.Forms.Button();
             this.btnHelpHF = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,14 +70,14 @@ namespace HotFixUtility
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(903, 38);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 34);
             this.settingsToolStripMenuItem.Text = "Settings";
             // 
             // label1
@@ -294,11 +297,30 @@ namespace HotFixUtility
             this.toolTip1.SetToolTip(this.btnHelpHF, "Help on Hotfix command.");
             this.btnHelpHF.UseVisualStyleBackColor = true;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel1});
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 279);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(722, 26);
+            this.statusStrip1.TabIndex = 22;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // statusLabel1
+            // 
+            this.statusLabel1.Name = "statusLabel1";
+            this.statusLabel1.Size = new System.Drawing.Size(15, 20);
+            this.statusLabel1.Text = "..";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 296);
+            this.ClientSize = new System.Drawing.Size(722, 305);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnHelpHF);
             this.Controls.Add(this.btnHelpRtb);
             this.Controls.Add(this.btnHelpProlib);
@@ -326,6 +348,8 @@ namespace HotFixUtility
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,6 +382,8 @@ namespace HotFixUtility
         private System.Windows.Forms.Button btnHelpProlib;
         private System.Windows.Forms.Button btnHelpTransfer;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel statusLabel1;
     }
 }
 
