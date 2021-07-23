@@ -277,8 +277,47 @@ namespace HotFixUtility
 
         private void btnRTBTransfer_Click(object sender, EventArgs e)
         {
-            //TODO
+            string sourceDir, sourceFile, destinationDirectory,destinationFile;
+
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+            sourceDir = env_detail.RTBSourceDirectory;
+            destinationDirectory = env_detail.RTBDestinationDirectory;
+
+            // Get the RTB mappings from the environment file.
             DataTable dtRTBMappings = ConfigDetails.GetRTBMappings();
+
+            DataTable dtInputFileRTB = new DataTable();
+            dtInputFileRTB.Columns.Add("FileName", typeof(string));
+            dtInputFileRTB.Columns.Add("SourceFile", typeof(string));
+            dtInputFileRTB.Columns.Add("RTBModule", typeof(string));
+
+            foreach(DataRow row in dtInputFile.Rows)
+            {
+                // source file = Source Directory + rtb module +File name 
+                sourceFile = sourceDir + row.ItemArray[1] + @"\" + row.ItemArray[0];
+                dtInputFileRTB.Rows.Add(row.ItemArray[0], sourceFile, row.ItemArray[1]);
+            }
+
+            foreach (DataRow rowInput in dtInputFileRTB.Rows)
+            {
+                foreach (DataRow rowRTB in dtRTBMappings.Select($"Module = '{rowInput.Field<string>("RTBModule")}'"))
+                {
+                    sourceFile = rowInput.Field<string>("SourceFile");
+                    destinationFile = destinationDirectory + rowRTB.Field<string>("Directory") + @"/" + rowInput.Field<string>("FileName");
+
+                    try
+                    {
+                        Operations.CopyFile(sourceFile, destinationFile);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Transfer error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ChangeBackgroundColor(btnRTBTransfer, StatusTypes.Error);
+                        return;
+                    }
+                }
+            }
+            ChangeBackgroundColor(btnRTBTransfer, StatusTypes.Success);
         }
 
         private void updateStatusLabel(string message, StatusTypes status)
