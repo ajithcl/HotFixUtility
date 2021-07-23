@@ -70,7 +70,7 @@ namespace HotFixUtility
             this.settingsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(903, 38);
+            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,7 +96,7 @@ namespace HotFixUtility
             this.cmbEnvironment.FormattingEnabled = true;
             this.cmbEnvironment.Location = new System.Drawing.Point(135, 38);
             this.cmbEnvironment.Name = "cmbEnvironment";
-            this.cmbEnvironment.Size = new System.Drawing.Size(224, 28);
+            this.cmbEnvironment.Size = new System.Drawing.Size(474, 28);
             this.cmbEnvironment.TabIndex = 2;
             this.cmbEnvironment.SelectedIndexChanged += new System.EventHandler(this.cmbEnvironment_SelectedIndexChanged);
             // 
