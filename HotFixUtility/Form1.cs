@@ -294,8 +294,8 @@ namespace HotFixUtility
             foreach(DataRow row in dtInputFile.Rows)
             {
                 // source file = Source Directory + rtb module +File name 
-                sourceFile = sourceDir + row.ItemArray[1] + @"\" + row.ItemArray[0];
-                dtInputFileRTB.Rows.Add(row.ItemArray[0], sourceFile, row.ItemArray[1]);
+                sourceFile = sourceDir + row.ItemArray[1] + @"\" + row.ItemArray[2];
+                dtInputFileRTB.Rows.Add(row.ItemArray[2], sourceFile, row.ItemArray[1]);
             }
 
             foreach (DataRow rowInput in dtInputFileRTB.Rows)
@@ -318,6 +318,27 @@ namespace HotFixUtility
                 }
             }
             ChangeBackgroundColor(btnRTBTransfer, StatusTypes.Success);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Input file csv format :\nCompiled object name, RTB module name, source program name",
+                            "Inforamation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnCreateHF_Click(object sender, EventArgs e)
+        {
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+            System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
+            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal;
+            startInfo.FileName = confDtl.GetHotfixCommand();
+            startInfo.WorkingDirectory = env_detail.HotFixCommandWorkingDirectory;
+            process.StartInfo = startInfo;
+            process.Start();
+
+            ChangeBackgroundColor(btnCreateHF, StatusTypes.Success);
         }
 
         private void updateStatusLabel(string message, StatusTypes status)

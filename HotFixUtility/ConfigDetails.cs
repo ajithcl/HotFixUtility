@@ -61,6 +61,10 @@ namespace HotFixUtility
         {
             return configResult.ProenvCommand;
         }
+        public string GetHotfixCommand()
+        {
+            return configResult.HotFixCommand;
+        }
 
         public static Environment GetEnvironmentDetails(string environmentName)
         {
@@ -134,6 +138,10 @@ namespace HotFixUtility
         {            get; set;
         }
         public string RTBDestinationDirectory
+        {
+            get; set;
+        }
+        public string HotFixCommandWorkingDirectory
         {
             get; set;
         }

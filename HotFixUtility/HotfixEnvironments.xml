@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ProenvCommand>C:\Progress\OpenEdge\bin\proenv.bat</ProenvCommand>
-	<HotFixCommand>c:\hf.bat</HotFixCommand>
+	<HotFixCommand>C:\Progress\OpenEdge\bin\proenv.bat</HotFixCommand>
 	<AsciiModuleList>ascii</AsciiModuleList>
 	<Environments>
 		<Environment>
@@ -15,6 +15,7 @@
 			<AsciiProlibProenvCommand>W:\Version\900A\Service1\hotfix\_DOS_BOX_OE11.bat</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>W:\RTB\900A\FO\</RTBSourceDirectory>
 			<RTBDestinationDirectory>W:\Version\900A\Service1\</RTBDestinationDirectory>
+			<HotFixCommandWorkingDirectory>C:\Users\achandranlalit\Downloads\Source\</HotFixCommandWorkingDirectory>
 		</Environment>
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>
@@ -27,6 +28,7 @@
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
 			<RTBSourceDirectory>C:\Users\achandranlalit\Downloads\Source\</RTBSourceDirectory>
 			<RTBDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\RTB\</RTBDestinationDirectory>
+			<HotFixCommandWorkingDirectory>C:\Users\achandranlalit\Downloads\Source\</HotFixCommandWorkingDirectory>
 		</Environment>
 	</Environments>
 	<RTBMappings>
