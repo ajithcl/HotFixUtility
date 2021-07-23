@@ -77,5 +77,11 @@ namespace HotFixUtility
             }
             return true;
         }
+
+        public static bool CopyFiles(string sourceFileName, string destinationFileName)
+        {
+            // TODO
+            throw new NotImplementedException();
+        }
     }
 }

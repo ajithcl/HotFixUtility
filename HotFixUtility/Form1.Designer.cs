@@ -171,6 +171,7 @@ namespace HotFixUtility
             this.btnRTBTransfer.TabIndex = 10;
             this.btnRTBTransfer.Text = "Transfer";
             this.btnRTBTransfer.UseVisualStyleBackColor = true;
+            this.btnRTBTransfer.Click += new System.EventHandler(this.btnRTBTransfer_Click);
             // 
             // btnCreateHF
             // 

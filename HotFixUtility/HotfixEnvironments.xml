@@ -42,5 +42,13 @@
 			<RTBModule>ascshared</RTBModule>
 			<RTBDirectory>rmodall</RTBDirectory>
 		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>transhared</RTBModule>
+			<RTBDirectory>rmodulus</RTBDirectory>
+		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>transhared</RTBModule>
+			<RTBDirectory>allwin</RTBDirectory>
+		</RTBMapping>	
 	</RTBMappings>
 </Configurations>

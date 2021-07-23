@@ -275,6 +275,12 @@ namespace HotFixUtility
             ChangeBackgroundColor(btnAddProlibFiles, StatusTypes.Success);
         }
 
+        private void btnRTBTransfer_Click(object sender, EventArgs e)
+        {
+            //TODO
+            DataTable dtRTBMappings = ConfigDetails.GetRTBMappings();
+        }
+
         private void updateStatusLabel(string message, StatusTypes status)
         {
             statusLabel1.Text = message;
