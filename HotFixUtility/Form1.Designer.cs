@@ -33,6 +33,7 @@ namespace HotFixUtility
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbEnvironment = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,7 +59,10 @@ namespace HotFixUtility
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnVersionCheckAll = new System.Windows.Forms.Button();
+            this.btnVersionAsciiCheck = new System.Windows.Forms.Button();
+            this.btnHelpVersion = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -72,7 +76,7 @@ namespace HotFixUtility
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(722, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(732, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -81,6 +85,13 @@ namespace HotFixUtility
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(76, 24);
             this.settingsToolStripMenuItem.Text = "Settings";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -96,7 +107,7 @@ namespace HotFixUtility
             // 
             this.cmbEnvironment.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEnvironment.FormattingEnabled = true;
-            this.cmbEnvironment.Location = new System.Drawing.Point(135, 38);
+            this.cmbEnvironment.Location = new System.Drawing.Point(145, 38);
             this.cmbEnvironment.Name = "cmbEnvironment";
             this.cmbEnvironment.Size = new System.Drawing.Size(474, 28);
             this.cmbEnvironment.TabIndex = 2;
@@ -115,7 +126,7 @@ namespace HotFixUtility
             // txtInputFile
             // 
             this.txtInputFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInputFile.Location = new System.Drawing.Point(135, 80);
+            this.txtInputFile.Location = new System.Drawing.Point(145, 80);
             this.txtInputFile.Name = "txtInputFile";
             this.txtInputFile.Size = new System.Drawing.Size(474, 27);
             this.txtInputFile.TabIndex = 4;
@@ -123,7 +134,7 @@ namespace HotFixUtility
             // btnTransferAsciiFiles
             // 
             this.btnTransferAsciiFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferAsciiFiles.Location = new System.Drawing.Point(385, 120);
+            this.btnTransferAsciiFiles.Location = new System.Drawing.Point(395, 160);
             this.btnTransferAsciiFiles.Name = "btnTransferAsciiFiles";
             this.btnTransferAsciiFiles.Size = new System.Drawing.Size(224, 35);
             this.btnTransferAsciiFiles.TabIndex = 6;
@@ -134,7 +145,7 @@ namespace HotFixUtility
             // btnTransferFiles
             // 
             this.btnTransferFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferFiles.Location = new System.Drawing.Point(135, 120);
+            this.btnTransferFiles.Location = new System.Drawing.Point(145, 160);
             this.btnTransferFiles.Name = "btnTransferFiles";
             this.btnTransferFiles.Size = new System.Drawing.Size(224, 35);
             this.btnTransferFiles.TabIndex = 7;
@@ -145,7 +156,7 @@ namespace HotFixUtility
             // btnAddProlibFiles
             // 
             this.btnAddProlibFiles.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddProlibFiles.Location = new System.Drawing.Point(135, 161);
+            this.btnAddProlibFiles.Location = new System.Drawing.Point(145, 201);
             this.btnAddProlibFiles.Name = "btnAddProlibFiles";
             this.btnAddProlibFiles.Size = new System.Drawing.Size(224, 35);
             this.btnAddProlibFiles.TabIndex = 8;
@@ -156,7 +167,7 @@ namespace HotFixUtility
             // btnAddAsciiFileProlib
             // 
             this.btnAddAsciiFileProlib.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAsciiFileProlib.Location = new System.Drawing.Point(385, 161);
+            this.btnAddAsciiFileProlib.Location = new System.Drawing.Point(395, 201);
             this.btnAddAsciiFileProlib.Name = "btnAddAsciiFileProlib";
             this.btnAddAsciiFileProlib.Size = new System.Drawing.Size(224, 35);
             this.btnAddAsciiFileProlib.TabIndex = 9;
@@ -167,7 +178,7 @@ namespace HotFixUtility
             // btnRTBTransfer
             // 
             this.btnRTBTransfer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRTBTransfer.Location = new System.Drawing.Point(135, 202);
+            this.btnRTBTransfer.Location = new System.Drawing.Point(145, 242);
             this.btnRTBTransfer.Name = "btnRTBTransfer";
             this.btnRTBTransfer.Size = new System.Drawing.Size(474, 35);
             this.btnRTBTransfer.TabIndex = 10;
@@ -178,7 +189,7 @@ namespace HotFixUtility
             // btnCreateHF
             // 
             this.btnCreateHF.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateHF.Location = new System.Drawing.Point(135, 243);
+            this.btnCreateHF.Location = new System.Drawing.Point(145, 283);
             this.btnCreateHF.Name = "btnCreateHF";
             this.btnCreateHF.Size = new System.Drawing.Size(474, 35);
             this.btnCreateHF.TabIndex = 11;
@@ -194,7 +205,7 @@ namespace HotFixUtility
             // 
             this.btnFileSelect.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFileSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnFileSelect.Image")));
-            this.btnFileSelect.Location = new System.Drawing.Point(615, 80);
+            this.btnFileSelect.Location = new System.Drawing.Point(625, 80);
             this.btnFileSelect.Name = "btnFileSelect";
             this.btnFileSelect.Size = new System.Drawing.Size(46, 37);
             this.btnFileSelect.TabIndex = 12;
@@ -205,7 +216,7 @@ namespace HotFixUtility
             // 
             this.btnLoadFile.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadFile.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadFile.Image")));
-            this.btnLoadFile.Location = new System.Drawing.Point(667, 80);
+            this.btnLoadFile.Location = new System.Drawing.Point(677, 80);
             this.btnLoadFile.Name = "btnLoadFile";
             this.btnLoadFile.Size = new System.Drawing.Size(46, 37);
             this.btnLoadFile.TabIndex = 13;
@@ -217,7 +228,7 @@ namespace HotFixUtility
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 128);
+            this.label3.Location = new System.Drawing.Point(12, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 19);
             this.label3.TabIndex = 14;
@@ -227,7 +238,7 @@ namespace HotFixUtility
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 169);
+            this.label4.Location = new System.Drawing.Point(12, 209);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 19);
             this.label4.TabIndex = 15;
@@ -237,7 +248,7 @@ namespace HotFixUtility
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 210);
+            this.label5.Location = new System.Drawing.Point(12, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 19);
             this.label5.TabIndex = 16;
@@ -247,7 +258,7 @@ namespace HotFixUtility
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(12, 251);
+            this.label6.Location = new System.Drawing.Point(12, 291);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 19);
             this.label6.TabIndex = 17;
@@ -261,7 +272,7 @@ namespace HotFixUtility
             // 
             this.btnHelpTransfer.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelpTransfer.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpTransfer.Image")));
-            this.btnHelpTransfer.Location = new System.Drawing.Point(615, 120);
+            this.btnHelpTransfer.Location = new System.Drawing.Point(625, 160);
             this.btnHelpTransfer.Name = "btnHelpTransfer";
             this.btnHelpTransfer.Size = new System.Drawing.Size(46, 35);
             this.btnHelpTransfer.TabIndex = 18;
@@ -272,7 +283,7 @@ namespace HotFixUtility
             // 
             this.btnHelpProlib.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelpProlib.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpProlib.Image")));
-            this.btnHelpProlib.Location = new System.Drawing.Point(615, 161);
+            this.btnHelpProlib.Location = new System.Drawing.Point(625, 201);
             this.btnHelpProlib.Name = "btnHelpProlib";
             this.btnHelpProlib.Size = new System.Drawing.Size(46, 35);
             this.btnHelpProlib.TabIndex = 19;
@@ -283,7 +294,7 @@ namespace HotFixUtility
             // 
             this.btnHelpRtb.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelpRtb.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpRtb.Image")));
-            this.btnHelpRtb.Location = new System.Drawing.Point(615, 202);
+            this.btnHelpRtb.Location = new System.Drawing.Point(625, 242);
             this.btnHelpRtb.Name = "btnHelpRtb";
             this.btnHelpRtb.Size = new System.Drawing.Size(46, 35);
             this.btnHelpRtb.TabIndex = 20;
@@ -294,7 +305,7 @@ namespace HotFixUtility
             // 
             this.btnHelpHF.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelpHF.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpHF.Image")));
-            this.btnHelpHF.Location = new System.Drawing.Point(615, 243);
+            this.btnHelpHF.Location = new System.Drawing.Point(625, 283);
             this.btnHelpHF.Name = "btnHelpHF";
             this.btnHelpHF.Size = new System.Drawing.Size(46, 35);
             this.btnHelpHF.TabIndex = 21;
@@ -307,9 +318,9 @@ namespace HotFixUtility
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel1});
             this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.statusStrip1.Location = new System.Drawing.Point(0, 279);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 328);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(722, 26);
+            this.statusStrip1.Size = new System.Drawing.Size(732, 26);
             this.statusStrip1.TabIndex = 22;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -319,18 +330,56 @@ namespace HotFixUtility
             this.statusLabel1.Size = new System.Drawing.Size(15, 20);
             this.statusLabel1.Text = "..";
             // 
-            // helpToolStripMenuItem
+            // label7
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 133);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(158, 24);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Version Check :";
+            // 
+            // btnVersionCheckAll
+            // 
+            this.btnVersionCheckAll.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVersionCheckAll.Location = new System.Drawing.Point(145, 119);
+            this.btnVersionCheckAll.Name = "btnVersionCheckAll";
+            this.btnVersionCheckAll.Size = new System.Drawing.Size(224, 35);
+            this.btnVersionCheckAll.TabIndex = 24;
+            this.btnVersionCheckAll.Text = "All Files";
+            this.btnVersionCheckAll.UseVisualStyleBackColor = true;
+            // 
+            // btnVersionAsciiCheck
+            // 
+            this.btnVersionAsciiCheck.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVersionAsciiCheck.Location = new System.Drawing.Point(395, 119);
+            this.btnVersionAsciiCheck.Name = "btnVersionAsciiCheck";
+            this.btnVersionAsciiCheck.Size = new System.Drawing.Size(224, 35);
+            this.btnVersionAsciiCheck.TabIndex = 25;
+            this.btnVersionAsciiCheck.Text = "Ascii Files";
+            this.btnVersionAsciiCheck.UseVisualStyleBackColor = true;
+            // 
+            // btnHelpVersion
+            // 
+            this.btnHelpVersion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpVersion.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpVersion.Image")));
+            this.btnHelpVersion.Location = new System.Drawing.Point(625, 119);
+            this.btnHelpVersion.Name = "btnHelpVersion";
+            this.btnHelpVersion.Size = new System.Drawing.Size(46, 35);
+            this.btnHelpVersion.TabIndex = 26;
+            this.toolTip1.SetToolTip(this.btnHelpVersion, "Help on Transfering files.");
+            this.btnHelpVersion.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(722, 305);
+            this.ClientSize = new System.Drawing.Size(732, 354);
+            this.Controls.Add(this.btnHelpVersion);
+            this.Controls.Add(this.btnVersionAsciiCheck);
+            this.Controls.Add(this.btnVersionCheckAll);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnHelpHF);
             this.Controls.Add(this.btnHelpRtb);
@@ -396,6 +445,10 @@ namespace HotFixUtility
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.Button btnHelpVersion;
+        private System.Windows.Forms.Button btnVersionAsciiCheck;
+        private System.Windows.Forms.Button btnVersionCheckAll;
+        private System.Windows.Forms.Label label7;
     }
 }
 
