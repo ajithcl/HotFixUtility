@@ -8,6 +8,7 @@ using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
 using System.Collections;
+using System.Configuration;
 
 // This class should contain all the operations for this hotfix related process.
 
@@ -92,6 +93,88 @@ namespace HotFixUtility
             }
 
             return true;
+        }
+        public static bool VerifyVersion(string fileName, string versionNumber)
+        {
+            
+            string[] fileContents = File.ReadAllLines(fileName);
+            string lineContent;
+            int foundLineNumber = 0, fileLength, currentLineNumber = 1;
+            fileLength = fileContents.Length;
+
+            
+            FileLogger.Log($"Filename : {fileName} Version: {versionNumber}");
+
+            for (int i = 0; i < fileContents.Length; i++)
+            {
+                lineContent = fileContents[i];
+                if (lineContent.Contains(versionNumber))
+                {
+                    foundLineNumber = i;
+                    break;
+                }
+            }
+            if (foundLineNumber == 0)
+                return false;
+
+            bool proceedPrint = true;
+            int counter = 5; // TODO : Remove hardcoding.
+
+            currentLineNumber = foundLineNumber - counter;
+            //print previous lines
+            while (proceedPrint)
+            {
+                if (currentLineNumber > 0)
+                {
+                    FileLogger.Log(fileContents[currentLineNumber]);
+                }
+
+                counter--;
+                currentLineNumber -= counter;
+                if (counter == 0)
+                    proceedPrint = false;
+
+            }
+
+
+            //ActualLine
+            FileLogger.Log(fileContents[foundLineNumber]);
+
+            currentLineNumber = foundLineNumber;
+            proceedPrint = true;
+
+            // Print next lines.
+            while (proceedPrint)
+            {
+                currentLineNumber++;
+                if (currentLineNumber < fileContents.Length)
+                {
+                    FileLogger.Log(fileContents[currentLineNumber]); 
+                    proceedPrint = true;
+                }
+                else
+                    proceedPrint = false;
+                counter += 1;
+                if (counter > 5)
+                    proceedPrint = false;
+            }
+
+
+
+            return true;
+        }
+    }
+
+    public static  class FileLogger
+    {
+        public static string filePath = ConfigurationManager.AppSettings.Get("LogFile");
+        public static void Log(string message)
+        {
+            using (StreamWriter streamWriter = new StreamWriter(filePath,true) )
+            {
+                streamWriter.WriteLine(message);
+                streamWriter.Close();
+            }
         }
     }
 }

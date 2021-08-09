@@ -349,6 +349,7 @@ namespace HotFixUtility
             this.btnVersionCheckAll.TabIndex = 24;
             this.btnVersionCheckAll.Text = "All Files";
             this.btnVersionCheckAll.UseVisualStyleBackColor = true;
+            this.btnVersionCheckAll.Click += new System.EventHandler(this.btnVersionCheckAll_Click);
             // 
             // btnVersionAsciiCheck
             // 

@@ -341,6 +341,24 @@ namespace HotFixUtility
             ChangeBackgroundColor(btnCreateHF, StatusTypes.Success);
         }
 
+        private void btnVersionCheckAll_Click(object sender, EventArgs e)
+        {
+            string programName, programVersion, fileName;
+
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+            
+            for (int index = 0; index < dtInputFile.Rows.Count; index++)
+            {
+                //programList.Add(dtInputFile.Rows[index][0].ToString());
+                programName = dtInputFile.Rows[index][0].ToString();
+                programVersion = dtInputFile.Rows[index][3].ToString();
+
+                fileName = env_detail.SourceDirectory + programName;
+
+                Operations.VerifyVersion(fileName, programVersion);
+            }
+        }
+
         private void updateStatusLabel(string message, StatusTypes status)
         {
             statusLabel1.Text = message;
