@@ -54,7 +54,9 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Operations.cs" />
+    <Compile Include="..\..\..\..\Users\achandranlalit\Downloads\Operations.cs">
+      <Link>Operations.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

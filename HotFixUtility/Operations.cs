@@ -104,7 +104,7 @@ namespace HotFixUtility
 
             
             FileLogger.Log($"Filename : {fileName} Version: {versionNumber}");
-
+            /*
             for (int i = 0; i < fileContents.Length; i++)
             {
                 lineContent = fileContents[i];
@@ -126,7 +126,8 @@ namespace HotFixUtility
             {
                 if (currentLineNumber > 0)
                 {
-                    FileLogger.Log(fileContents[currentLineNumber]);
+                    if (fileContents[currentLineNumber].Contains("rtbvers.p"))
+                        FileLogger.Log(fileContents[currentLineNumber]);
                 }
 
                 counter--;
@@ -138,18 +139,41 @@ namespace HotFixUtility
 
 
             //ActualLine
-            FileLogger.Log(fileContents[foundLineNumber]);
+            //FileLogger.Log($"Line # {foundLineNumber} {fileContents[foundLineNumber]}");
 
+            */
+            for (int i = 0; i < fileContents.Length; i++)
+            {
+                lineContent = fileContents[i];
+                if (lineContent.Contains("rtbvers.p"))
+                {
+                    FileLogger.Log($"Found rtbvers.p on Line #{i} => {fileContents[i]}");
+                    
+                }
+                if (lineContent.Contains(versionNumber))
+                {
+                    FileLogger.Log($"Found version number on Line #{i} => {fileContents[i]}");
+                }
+                if (lineContent.Contains("RtbObj"))
+                {
+                    FileLogger.Log($"Found RtbObj on Line #{i} => {fileContents[i]}");
+                }
+            }
+
+            FileLogger.Log("--File search end--");
+            /*
             currentLineNumber = foundLineNumber;
             proceedPrint = true;
-
+            */
             // Print next lines.
+            /*
             while (proceedPrint)
             {
                 currentLineNumber++;
                 if (currentLineNumber < fileContents.Length)
                 {
-                    FileLogger.Log(fileContents[currentLineNumber]); 
+                    if (fileContents[currentLineNumber].Contains("rtbvers.p"))
+                        FileLogger.Log(fileContents[currentLineNumber]); 
                     proceedPrint = true;
                 }
                 else
@@ -158,6 +182,7 @@ namespace HotFixUtility
                 if (counter > 5)
                     proceedPrint = false;
             }
+            */
 
 
 
@@ -170,8 +195,10 @@ namespace HotFixUtility
         public static string filePath = ConfigurationManager.AppSettings.Get("LogFile");
         public static void Log(string message)
         {
-            using (StreamWriter streamWriter = new StreamWriter(filePath,true) )
+            using (StreamWriter streamWriter = new StreamWriter(filePath,true))
             {
+                message = $"{DateTime.Now} : {message}";
+                
                 streamWriter.WriteLine(message);
                 streamWriter.Close();
             }

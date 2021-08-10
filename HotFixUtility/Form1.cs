@@ -141,6 +141,7 @@ namespace HotFixUtility
             }
             UpdateProcessButtons(true);
             ChangeBackgroundColor(btnLoadFile, StatusTypes.Success);
+            FileLogger.Log($"{txtInputFile.Text} loaded.");
             updateStatusLabel("Program list loaded.", StatusTypes.Success);
         }
         private void UpdateProcessButtons(bool action)
@@ -172,6 +173,7 @@ namespace HotFixUtility
                 return;
             }
             selectedEnvironment = cmbEnvironment.Text;
+            FileLogger.Log($"Environment: {selectedEnvironment}");
         }
 
         private void btnTransferFiles_Click(object sender, EventArgs e)
@@ -357,6 +359,7 @@ namespace HotFixUtility
 
                 Operations.VerifyVersion(fileName, programVersion);
             }
+            ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.Success);
         }
 
         private void updateStatusLabel(string message, StatusTypes status)
