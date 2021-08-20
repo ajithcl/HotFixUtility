@@ -21,8 +21,8 @@
 			<EnvironmentName>822</EnvironmentName>
 			<AsciiSourceDirectory>C:\Users\achandranlalit\Downloads\Source\</AsciiSourceDirectory>
 			<AsciiDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiDestinationDirectory>
-			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
-			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
+			<SourceDirectory>W:\Translation\822G\programs\</SourceDirectory>
+			<TargetDirectory>W:\Version\822G\service11\hotfix\</TargetDirectory>
 			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G\</ProEnvWorkingDirectory>
 			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>

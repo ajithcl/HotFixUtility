@@ -324,7 +324,7 @@ namespace HotFixUtility
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Input file csv format :\nCompiled object name, RTB module name, source program name",
+            MessageBox.Show("Input file csv format :\nCompiled object name, RTB module name, source program name, version number",
                             "Inforamation", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -356,8 +356,9 @@ namespace HotFixUtility
                 programVersion = dtInputFile.Rows[index][3].ToString();
 
                 fileName = env_detail.SourceDirectory + programName;
-
+                statusLabel1.Text = $"Version check for {fileName}";
                 Operations.VerifyVersion(fileName, programVersion);
+                statusLabel1.Text = "";
             }
             ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.Success);
         }
