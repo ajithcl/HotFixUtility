@@ -57,12 +57,12 @@ namespace HotFixUtility
             this.btnHelpRtb = new System.Windows.Forms.Button();
             this.btnHelpHF = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnHelpVersion = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnVersionCheckAll = new System.Windows.Forms.Button();
             this.btnVersionAsciiCheck = new System.Windows.Forms.Button();
-            this.btnHelpVersion = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -312,6 +312,17 @@ namespace HotFixUtility
             this.toolTip1.SetToolTip(this.btnHelpHF, "Help on Hotfix command.");
             this.btnHelpHF.UseVisualStyleBackColor = true;
             // 
+            // btnHelpVersion
+            // 
+            this.btnHelpVersion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHelpVersion.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpVersion.Image")));
+            this.btnHelpVersion.Location = new System.Drawing.Point(625, 119);
+            this.btnHelpVersion.Name = "btnHelpVersion";
+            this.btnHelpVersion.Size = new System.Drawing.Size(46, 35);
+            this.btnHelpVersion.TabIndex = 26;
+            this.toolTip1.SetToolTip(this.btnHelpVersion, "Help on Transfering files.");
+            this.btnHelpVersion.UseVisualStyleBackColor = true;
+            // 
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -326,6 +337,7 @@ namespace HotFixUtility
             // 
             // statusLabel1
             // 
+            this.statusLabel1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.statusLabel1.Name = "statusLabel1";
             this.statusLabel1.Size = new System.Drawing.Size(15, 20);
             this.statusLabel1.Text = "..";
@@ -336,7 +348,7 @@ namespace HotFixUtility
             this.label7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(12, 133);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 24);
+            this.label7.Size = new System.Drawing.Size(126, 19);
             this.label7.TabIndex = 23;
             this.label7.Text = "Version Check :";
             // 
@@ -360,17 +372,6 @@ namespace HotFixUtility
             this.btnVersionAsciiCheck.TabIndex = 25;
             this.btnVersionAsciiCheck.Text = "Ascii Files";
             this.btnVersionAsciiCheck.UseVisualStyleBackColor = true;
-            // 
-            // btnHelpVersion
-            // 
-            this.btnHelpVersion.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHelpVersion.Image = ((System.Drawing.Image)(resources.GetObject("btnHelpVersion.Image")));
-            this.btnHelpVersion.Location = new System.Drawing.Point(625, 119);
-            this.btnHelpVersion.Name = "btnHelpVersion";
-            this.btnHelpVersion.Size = new System.Drawing.Size(46, 35);
-            this.btnHelpVersion.TabIndex = 26;
-            this.toolTip1.SetToolTip(this.btnHelpVersion, "Help on Transfering files.");
-            this.btnHelpVersion.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

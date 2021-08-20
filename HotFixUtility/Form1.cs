@@ -356,11 +356,12 @@ namespace HotFixUtility
                 programVersion = dtInputFile.Rows[index][3].ToString();
 
                 fileName = env_detail.SourceDirectory + programName;
-                statusLabel1.Text = $"Version check for {fileName}";
+
+                updateStatusLabel("Version checking..", StatusTypes.General);                
                 Operations.VerifyVersion(fileName, programVersion);
-                statusLabel1.Text = "";
             }
             ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.Success);
+            updateStatusLabel("Version check Completed.", StatusTypes.General);
         }
 
         private void updateStatusLabel(string message, StatusTypes status)
