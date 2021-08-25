@@ -79,7 +79,7 @@ namespace HotFixUtility
             // TODO : If yes, copy the files.
             ArrayList programList = new ArrayList();
             string sourceDir, destDir;
-            string asciiModuleList = confDtl.GetAsciiModuleList();            
+            string asciiModuleList = ConfigDetails.GetAsciiModuleList();            
 
             for (int index=0; index<dtInputFile.Rows.Count; index++)
             {
@@ -146,6 +146,8 @@ namespace HotFixUtility
         }
         private void UpdateProcessButtons(bool action)
         {
+            btnVersionCheckAll.Enabled = action;
+            btnVersionAsciiCheck.Enabled = action;
             btnTransferFiles.Enabled = action;
             btnTransferAsciiFiles.Enabled = action;
             btnAddAsciiFileProlib.Enabled = action;
@@ -153,6 +155,8 @@ namespace HotFixUtility
             btnCreateHF.Enabled = action;
             btnRTBTransfer.Enabled = action;
 
+            ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.General);
+            ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.General);
             ChangeBackgroundColor(btnTransferFiles, StatusTypes.General);
             ChangeBackgroundColor(btnTransferAsciiFiles, StatusTypes.General);
             ChangeBackgroundColor(btnAddAsciiFileProlib, StatusTypes.General);
@@ -206,7 +210,7 @@ namespace HotFixUtility
             string proenvCommand = confDtl.GetProEnvCommand();
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
             string fileName = applicationDirectory + "Asciiprolibcommands.txt";
-            string asciiModuleList = confDtl.GetAsciiModuleList();
+            string asciiModuleList = ConfigDetails.GetAsciiModuleList();
             string cmdTxt;
 
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
@@ -348,7 +352,9 @@ namespace HotFixUtility
             string programName, programVersion, fileName;
 
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
-            
+
+            FileLogger.Log("Normal Version Checking..");
+            Cursor.Current = Cursors.WaitCursor;
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
             {
                 //programList.Add(dtInputFile.Rows[index][0].ToString());
@@ -360,31 +366,43 @@ namespace HotFixUtility
                 updateStatusLabel("Version checking..", StatusTypes.General);                
                 Operations.VerifyVersion(fileName, programVersion);
             }
+
+            Cursor.Current = Cursors.Default;
             ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.Success);
             updateStatusLabel("Version check Completed.", StatusTypes.General);
         }
 
         private void btnVersionAsciiCheck_Click(object sender, EventArgs e)
         {
-            string programName, programVersion, fileName,moduleName;
-            List<string> asciiModuleList;
+            string programName, programVersion, fileName,moduleName, asciiModuleList;
+            FileLogger.Log("Ascii Version Checking..");
+
+            if (dtInputFile is null)
+            {
+                MessageBox.Show("Blank Input File", "Invalid input file", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.Error );
+                updateStatusLabel("Invalid input file.", StatusTypes.Error);
+                return;
+            }
 
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
             asciiModuleList = ConfigDetails.GetAsciiModuleList();
 
+            Cursor.Current = Cursors.WaitCursor;
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
             {
                 moduleName = dtInputFile.Rows[index][1].ToString();
-                if (asciiModuleList.Contains(moduleName))
+                if (asciiModuleList.Split(',').Contains(moduleName))
                 {
                     programName = dtInputFile.Rows[index][0].ToString();
                     programVersion = dtInputFile.Rows[index][3].ToString();
                     fileName = env_detail.AsciiSourceDirectory + programName;
 
-                    updateStatusLabel("Version checking..", StatusTypes.General);
+                    updateStatusLabel("Ascii Version checking..", StatusTypes.General);
                     Operations.VerifyVersion(fileName, programVersion);
                 }                 
             }
+            Cursor.Current = Cursors.Default;
             ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.Success);
             updateStatusLabel("Ascii Versions checked.", StatusTypes.Success);
         }
