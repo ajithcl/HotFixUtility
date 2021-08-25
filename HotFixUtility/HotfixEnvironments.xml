@@ -2,7 +2,7 @@
 <Configurations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ProenvCommand>C:\Progress\OpenEdge\bin\proenv.bat</ProenvCommand>
 	<HotFixCommand>C:\Progress\OpenEdge\bin\proenv.bat</HotFixCommand>
-	<AsciiModuleList>ascii</AsciiModuleList>
+	<AsciiModuleList>ascinterface,ascshared,ascutils,fotrigg,hogarest,interfaces,transhared</AsciiModuleList>
 	<Environments>
 		<Environment>
 			<EnvironmentName>900</EnvironmentName>

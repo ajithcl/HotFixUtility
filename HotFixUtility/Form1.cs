@@ -364,6 +364,31 @@ namespace HotFixUtility
             updateStatusLabel("Version check Completed.", StatusTypes.General);
         }
 
+        private void btnVersionAsciiCheck_Click(object sender, EventArgs e)
+        {
+            string programName, programVersion, fileName,moduleName;
+            List<string> asciiModuleList;
+
+            Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
+            asciiModuleList = ConfigDetails.GetAsciiModuleList();
+
+            for (int index = 0; index < dtInputFile.Rows.Count; index++)
+            {
+                moduleName = dtInputFile.Rows[index][1].ToString();
+                if (asciiModuleList.Contains(moduleName))
+                {
+                    programName = dtInputFile.Rows[index][0].ToString();
+                    programVersion = dtInputFile.Rows[index][3].ToString();
+                    fileName = env_detail.AsciiSourceDirectory + programName;
+
+                    updateStatusLabel("Version checking..", StatusTypes.General);
+                    Operations.VerifyVersion(fileName, programVersion);
+                }                 
+            }
+            ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.Success);
+            updateStatusLabel("Ascii Versions checked.", StatusTypes.Success);
+        }
+
         private void updateStatusLabel(string message, StatusTypes status)
         {
             statusLabel1.Text = message;

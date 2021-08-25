@@ -52,9 +52,18 @@ namespace HotFixUtility
             return environmentList;
         }
 
-        public string GetAsciiModuleList()
+        public static List<string> GetAsciiModuleList()
         {
-            return configResult.AsciiModuleList;
+            string values = configResult.AsciiModuleList;
+            
+            List<string> asciiModuleList = new List<string>();
+
+            foreach (var item in values.Split(','))
+	        {
+                asciiModuleList.Add(item);
+            }
+
+            return asciiModuleList;
         }
 
         public string GetProEnvCommand()

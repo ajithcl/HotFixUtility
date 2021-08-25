@@ -372,6 +372,7 @@ namespace HotFixUtility
             this.btnVersionAsciiCheck.TabIndex = 25;
             this.btnVersionAsciiCheck.Text = "Ascii Files";
             this.btnVersionAsciiCheck.UseVisualStyleBackColor = true;
+            this.btnVersionAsciiCheck.Click += new System.EventHandler(this.btnVersionAsciiCheck_Click);
             // 
             // Form1
             // 
