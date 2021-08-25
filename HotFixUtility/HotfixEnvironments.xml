@@ -19,10 +19,10 @@
 		</Environment>
 		<Environment>
 			<EnvironmentName>822</EnvironmentName>
-			<AsciiSourceDirectory>C:\Users\achandranlalit\Downloads\Source\</AsciiSourceDirectory>
+			<AsciiSourceDirectory>C:\Users\achandranlalit\Downloads\Source\ascii\</AsciiSourceDirectory>
 			<AsciiDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiDestinationDirectory>
-			<SourceDirectory>W:\Translation\822G\programs\</SourceDirectory>
-			<TargetDirectory>W:\Version\822G\service11\hotfix\</TargetDirectory>
+			<SourceDirectory>C:\Users\achandranlalit\Downloads\Source\</SourceDirectory>
+			<TargetDirectory>C:\Users\achandranlalit\Downloads\Target\</TargetDirectory>
 			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G\</ProEnvWorkingDirectory>
 			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
@@ -46,7 +46,7 @@
 		</RTBMapping>
 		<RTBMapping>
 			<RTBModule>transhared</RTBModule>
-			<RTBDirectory>rmodulus</RTBDirectory>
+			<RTBDirectory>rmoduls</RTBDirectory>
 		</RTBMapping>
 		<RTBMapping>
 			<RTBModule>transhared</RTBModule>

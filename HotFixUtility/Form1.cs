@@ -75,11 +75,11 @@ namespace HotFixUtility
 
         private void btnTransferAsciiFiles_Click(object sender, EventArgs e)
         {
-            // TODO : Check if the rtb module is in <AsciiModuleList>
-            // TODO : If yes, copy the files.
+
             ArrayList programList = new ArrayList();
             string sourceDir, destDir;
-            string asciiModuleList = ConfigDetails.GetAsciiModuleList();            
+            string asciiModuleList = ConfigDetails.GetAsciiModuleList();
+            FileLogger.Log("--ASCII File Transfer--");
 
             for (int index=0; index<dtInputFile.Rows.Count; index++)
             {
@@ -108,6 +108,7 @@ namespace HotFixUtility
                 MessageBox.Show(ex.Message, "Error while copying", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ChangeBackgroundColor(btnTransferAsciiFiles, StatusTypes.Error);
             }
+            UpdateStatusLabel("Ascii file transfer - processed.", StatusTypes.General);
         }
 
         private void btnFileSelect_Click(object sender, EventArgs e)
@@ -142,7 +143,7 @@ namespace HotFixUtility
             UpdateProcessButtons(true);
             ChangeBackgroundColor(btnLoadFile, StatusTypes.Success);
             FileLogger.Log($"{txtInputFile.Text} loaded.");
-            updateStatusLabel("Program list loaded.", StatusTypes.Success);
+            UpdateStatusLabel("Program list loaded.", StatusTypes.Success);
         }
         private void UpdateProcessButtons(bool action)
         {
@@ -184,6 +185,7 @@ namespace HotFixUtility
         {
             ArrayList programList = new ArrayList();
             string sourceDir, destDir;
+            FileLogger.Log("--All Files Transfer--");
             for(int index=0; index <dtInputFile.Rows.Count; index++)
             {
                 programList.Add(dtInputFile.Rows[index][0].ToString());
@@ -201,7 +203,8 @@ namespace HotFixUtility
             {
                 MessageBox.Show(ex.Message, "Error while copying", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ChangeBackgroundColor(btnTransferFiles, StatusTypes.Error);
-            }            
+            }
+            UpdateStatusLabel("File transfer processed", StatusTypes.General);
         }
 
         private void btnAddAsciiFileProlib_Click(object sender, EventArgs e)
@@ -363,13 +366,13 @@ namespace HotFixUtility
 
                 fileName = env_detail.SourceDirectory + programName;
 
-                updateStatusLabel("Version checking..", StatusTypes.General);                
+                UpdateStatusLabel("Version checking..", StatusTypes.General);                
                 Operations.VerifyVersion(fileName, programVersion);
             }
 
             Cursor.Current = Cursors.Default;
             ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.Success);
-            updateStatusLabel("Version check Completed.", StatusTypes.General);
+            UpdateStatusLabel("Version check Completed.", StatusTypes.General);
         }
 
         private void btnVersionAsciiCheck_Click(object sender, EventArgs e)
@@ -381,7 +384,7 @@ namespace HotFixUtility
             {
                 MessageBox.Show("Blank Input File", "Invalid input file", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.Error );
-                updateStatusLabel("Invalid input file.", StatusTypes.Error);
+                UpdateStatusLabel("Invalid input file.", StatusTypes.Error);
                 return;
             }
 
@@ -398,16 +401,16 @@ namespace HotFixUtility
                     programVersion = dtInputFile.Rows[index][3].ToString();
                     fileName = env_detail.AsciiSourceDirectory + programName;
 
-                    updateStatusLabel("Ascii Version checking..", StatusTypes.General);
+                    UpdateStatusLabel("Ascii Version checking..", StatusTypes.General);
                     Operations.VerifyVersion(fileName, programVersion);
                 }                 
             }
             Cursor.Current = Cursors.Default;
             ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.Success);
-            updateStatusLabel("Ascii Versions checked.", StatusTypes.Success);
+            UpdateStatusLabel("Ascii Versions checked.", StatusTypes.General);
         }
 
-        private void updateStatusLabel(string message, StatusTypes status)
+        private void UpdateStatusLabel(string message, StatusTypes status)
         {
             statusLabel1.Text = message;
             switch (status)
