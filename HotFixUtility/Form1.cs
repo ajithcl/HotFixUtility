@@ -292,6 +292,8 @@ namespace HotFixUtility
             sourceDir = env_detail.RTBSourceDirectory;
             destinationDirectory = env_detail.RTBDestinationDirectory;
 
+            FileLogger.Log("RTB Transfer starting..");
+
             // Get the RTB mappings from the environment file.
             DataTable dtRTBMappings = ConfigDetails.GetRTBMappings();
 
@@ -313,16 +315,16 @@ namespace HotFixUtility
                 {
                     sourceFile = rowInput.Field<string>("SourceFile");
                     destinationFile = destinationDirectory + rowRTB.Field<string>("Directory") + @"/" + rowInput.Field<string>("FileName");
-
+                    
                     try
                     {
                         Operations.CopyFile(sourceFile, destinationFile);
+                        FileLogger.Log($"RTB traansfer from {sourceFile} to {destinationFile}");
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Transfer error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        ChangeBackgroundColor(btnRTBTransfer, StatusTypes.Error);
-                        return;
+                        FileLogger.Log(ex.Message);
                     }
                 }
             }

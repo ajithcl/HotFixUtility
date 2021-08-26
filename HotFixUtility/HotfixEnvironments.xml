@@ -26,7 +26,7 @@
 			<ProEnvWorkingDirectory>C:\Users\achandranlalit\Desktop\W_822G\</ProEnvWorkingDirectory>
 			<AsciiProEnvWorkingDirectory>C:\Users\achandranlalit\Downloads\Target\ascii\</AsciiProEnvWorkingDirectory>
 			<AsciiProlibProenvCommand>H:\test</AsciiProlibProenvCommand>
-			<RTBSourceDirectory>C:\Users\achandranlalit\Downloads\Source\</RTBSourceDirectory>
+			<RTBSourceDirectory>C:\Users\achandranlalit\Downloads\Source\RTB\</RTBSourceDirectory>
 			<RTBDestinationDirectory>C:\Users\achandranlalit\Downloads\Target\RTB\</RTBDestinationDirectory>
 			<HotFixCommandWorkingDirectory>C:\Users\achandranlalit\Downloads\Source\</HotFixCommandWorkingDirectory>
 		</Environment>
@@ -43,7 +43,67 @@
 		<RTBMapping>
 			<RTBModule>ascshared</RTBModule>
 			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>ascutils</RTBModule>
+			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>ba</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
 		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>bafast</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>
+		<RTBMapping>
+			<RTBModule>fo</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>fol</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>fotrigg</RTBModule>
+			<RTBDirectory>dbtrigg</RTBDirectory>
+		</RTBMapping>	
+		<RTBMapping>
+			<RTBModule>foupgrade</RTBModule>
+			<RTBDirectory>foupgrade</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>hoganet</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>	
+		<RTBMapping>
+			<RTBModule>hoganet</RTBModule>
+			<RTBDirectory>allwin</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>hogarest</RTBModule>
+			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>	
+		<RTBMapping>
+			<RTBModule>interfaces</RTBModule>
+			<RTBDirectory>rmodall</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>kor</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>opt</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>sa</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>		
+		<RTBMapping>
+			<RTBModule>sys</RTBModule>
+			<RTBDirectory>rmoduls</RTBDirectory>
+		</RTBMapping>		
 		<RTBMapping>
 			<RTBModule>transhared</RTBModule>
 			<RTBDirectory>rmoduls</RTBDirectory>
@@ -52,9 +112,5 @@
 			<RTBModule>transhared</RTBModule>
 			<RTBDirectory>allwin</RTBDirectory>
 		</RTBMapping>	
-		<RTBMapping>
-			<RTBModule>interfaces</RTBModule>
-			<RTBDirectory>rmodall</RTBDirectory>
-		</RTBMapping>		
 	</RTBMappings>
 </Configurations>
