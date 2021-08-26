@@ -20,7 +20,8 @@ namespace HotFixUtility
         DataTable dtInputFile;
         private string selectedEnvironment;
         public ConfigDetails confDtl;
-
+        private System.Windows.Forms.Timer updateLabelTimer = new System.Windows.Forms.Timer();
+ 
         private enum StatusTypes
         {
             Success,
@@ -354,12 +355,23 @@ namespace HotFixUtility
 
         private void btnVersionCheckAll_Click(object sender, EventArgs e)
         {
-            string programName, programVersion, fileName;
+            string programName="", programVersion, fileName;
+
+            EventHandler UpdateLabelTimerHandler = (sender_1, args) =>
+                {
+                    UpdateStatusLabel($"{programName} Version checking..", StatusTypes.General);
+                };
 
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
 
             FileLogger.Log("Normal Version Checking..");
             Cursor.Current = Cursors.WaitCursor;
+
+            // For updating the status label.
+            updateLabelTimer.Interval = 500;
+            updateLabelTimer.Tick += UpdateLabelTimerHandler;
+            updateLabelTimer.Start();
+
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
             {
                 //programList.Add(dtInputFile.Rows[index][0].ToString());
@@ -368,18 +380,22 @@ namespace HotFixUtility
 
                 fileName = env_detail.SourceDirectory + programName;
 
-                UpdateStatusLabel("Version checking..", StatusTypes.General);                
                 Operations.VerifyVersion(fileName, programVersion);
             }
 
             Cursor.Current = Cursors.Default;
+            updateLabelTimer.Stop();
             ChangeBackgroundColor(btnVersionCheckAll, StatusTypes.Success);
             UpdateStatusLabel("Version check Completed.", StatusTypes.General);
         }
 
         private void btnVersionAsciiCheck_Click(object sender, EventArgs e)
         {
-            string programName, programVersion, fileName,moduleName, asciiModuleList;
+            string programName="", programVersion, fileName,moduleName, asciiModuleList;
+            EventHandler UpdateLabelTimerHandler = (sender_1, args) =>
+            {
+                UpdateStatusLabel($"{programName} Ascii Version checking..", StatusTypes.General);
+            };
             FileLogger.Log("Ascii Version Checking..");
 
             if (dtInputFile is null)
@@ -392,6 +408,11 @@ namespace HotFixUtility
 
             Environment env_detail = ConfigDetails.GetEnvironmentDetails(selectedEnvironment);
             asciiModuleList = ConfigDetails.GetAsciiModuleList();
+
+            // For updating the status label.
+            updateLabelTimer.Interval = 500;
+            updateLabelTimer.Tick += UpdateLabelTimerHandler;
+            updateLabelTimer.Start();
 
             Cursor.Current = Cursors.WaitCursor;
             for (int index = 0; index < dtInputFile.Rows.Count; index++)
@@ -408,6 +429,8 @@ namespace HotFixUtility
                 }                 
             }
             Cursor.Current = Cursors.Default;
+            updateLabelTimer.Stop();
+
             ChangeBackgroundColor(btnVersionAsciiCheck, StatusTypes.Success);
             UpdateStatusLabel("Ascii Versions checked.", StatusTypes.General);
         }
